@@ -12,7 +12,7 @@ export default function Home() {
           <h3>DT HAMILTION MECHANICAL (OTTAWA) INC.</h3>
         </span>
         <h1>
-          Heating, Cooling, and Ventilation. <br /> We've got you covered.
+          Heating, Cooling, and Ventilation. <br /> We&apos;ve got you covered.
         </h1>
         <div className={styles.button_box}>
           <Link href={"/"} className="button-white">
