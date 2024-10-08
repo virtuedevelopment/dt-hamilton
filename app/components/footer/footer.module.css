@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.footer {
+  padding: var(--padding-navigation);
+  background: linear-gradient(rgba(33, 33, 33, 0.85), rgba(33, 33, 33, 0.85)),
+    url("/images/map.jpg");
+
+  background-size: cover;
+  background-position: center;
+  min-height: 50svh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  gap: 1.25rem;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contacts p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--white);
+  font-size: 0.65rem;
+  text-decoration: underline;
+}
+
+.footer h2 {
+  font-size: var(--font-size-subhead);
+  color: var(--white);
+  text-align: center;
+}
+
+.footer_info {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer_info p {
+  font-size: 0.5rem;
+  color: var(--white);
+  font-weight: 400;
+}
+
+.footer_info a {
+  color: var(--white);
+  font-size: 0.5rem;
+}

@@ -9,7 +9,7 @@
   width: 50px;
   height: 50px;
 }
-.navbar ul {
+.navbar .main_menu {
   min-width: 50%;
   display: flex;
   list-style: none;
@@ -18,16 +18,106 @@
   gap: 3rem;
   flex-wrap: wrap;
 }
-.navbar ul li a {
+.navbar .main_menu li a {
   text-decoration: none;
   text-align: center;
   color: var(--white);
   cursor: pointer;
   transition: var(--transition-normal);
 }
-.navba ul li a:hover {
+.navbar .main_menu li a:hover {
   text-decoration: underline;
   transition: var(--transition-normal);
+}
+
+.mobile_button {
+  background-color: transparent;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border: solid 1px var(--white);
+  color: var(--white);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+.mobile_button:hover {
+  border: none;
+  color: var(--color-main);
+  background-color: var(--white);
+  transition: var(--transition-normal);
+}
+
+.mobile_menu_button {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: solid 1.5px var(--color-main);
+  color: var(--color-main);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+.mobile_menu_button:hover {
+  border: none;
+  color: var(--white);
+  background-color: var(--color-main);
+  transition: var(--transition-normal);
+}
+
+.mobile_menu_open {
+  width: 300px;
+  background-color: var(--white);
+  height: 100svh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  padding: 1rem;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.mobile_menu_closed {
+  width: 300px;
+  background-color: var(--white);
+  height: 100svh;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  z-index: 999;
+  padding: 1rem;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.mobile_options {
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.mobile_menu_open li {
+  align-self: flex-end;
+}
+.mobile_options li a {
+  text-decoration: none;
+  color: var(--color-main);
+  text-align: right;
+  padding-block: 0.75rem;
+  padding-left: 1rem;
 }
 
 /* Main */
@@ -41,7 +131,15 @@
   /* Tablet Styles */
   /* Adjust styles as needed */
 
-  .navbar ul {
+  .navbar .main_menu {
+    display: none;
+  }
+
+  .mobile_button {
+    display: flex;
+  }
+
+  .get_quote {
     display: none;
   }
 }
