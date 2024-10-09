@@ -24,7 +24,7 @@ export default function Footer() {
       <div className={styles.footer_info}>
         <p>DT HAMILTON MECHANICAL (OTTAWA) INC. 2024</p>
 
-        <Link href={'/'}>Powered by Virtue</Link>
+        <Link href={'https://www.virtuetech.live/'}>Powered by Virtue</Link>
       </div>
     </footer>
   );
