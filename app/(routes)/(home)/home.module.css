@@ -47,7 +47,7 @@
 }
 
 .quote_form {
-  min-height: 85svh;
+  min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -63,25 +63,27 @@
   gap: 1.25rem;
 }
 .info_section h3 {
+  text-align: center;
   color: var(--white);
   font-size: var(--font-size-sub);
 }
 .info_section p {
+  text-align: center;
   color: var(--white);
   width: 100%;
 }
 .info_section .image_box {
-  margin-block: 1.5rem;
+  margin-block: 1rem;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
 .info_section .image_box img {
-  width: 175px;
-  height: 175px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   justify-self: center;
   align-self: center;
@@ -112,6 +114,10 @@
 @media (max-width: 1000px) {
   /* Tablet Styles */
   /* Adjust styles as needed */
+
+  .quote_form{
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {

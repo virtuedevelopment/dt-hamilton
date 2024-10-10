@@ -97,6 +97,8 @@ body {
 }
 
 .button-main {
+  border: none;
+  cursor: pointer;
   padding: var(--button-padding);
   font-size: var(--font-size-text);
   color: var(--white);
@@ -156,6 +158,51 @@ body {
   cursor: pointer;
 }
 
+.form {
+  min-width: 500px;
+  min-height: 500px;
+  box-shadow: var(--box-shadow-heavy);
+  padding: var(--padding-main);
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  gap: 1.5rem;
+}
+.inputbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.inputbox input {
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 1px var(--grey-light);
+  outline: none;
+  color: var(--grey-dark);
+  padding: 0.25rem 0;
+}
+.inputbox select {
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 1px var(--grey-light);
+  color: var(--grey-dark);
+  padding: 0.25rem 0;
+  outline: none;
+}
+.inputbox label {
+  font-size: var(--font-size-small);
+  color: var(--black);
+}
+.inputbox textarea {
+  height: 100px;
+  resize: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0.25rem 0;
+  border-bottom: solid 1px var(--grey-light);
+  color: var(--grey-dark);
+}
+
 /* Animations */
 @keyframes slidedown {
   from {
@@ -205,6 +252,18 @@ body {
     --font-size-heading: 4.5rem;
     --padding-main: 1rem;
     --padding-navigation: 0.5rem;
+  }
+
+  .form {
+    min-width: none;
+    grid-template-columns: 1fr;
+    display: grid;
+    gap: 1rem;
+  }
+  .inputbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
 

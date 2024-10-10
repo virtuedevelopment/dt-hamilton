@@ -1,6 +1,7 @@
 import styles from "./home.module.css";
 import Link from "next/link";
 import Navbar from "@/app/components/nav/Navbar";
+import Form from "@/app/components/utils/Form";
 
 const images = [
   "https://images.pexels.com/photos/24828656/pexels-photo-24828656/free-photo-of-ballu-air-conditioner-condenser-unit-on-the-wall-of-the-building.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -54,6 +55,7 @@ export default function Home() {
         </div>
         <div className={styles.form_box}>
           <h2>Get a Quote Now.</h2>
+          <Form />
         </div>
       </section>
     </>
