@@ -5,6 +5,7 @@
   justify-content: space-between;
   padding: var(--padding-navigation);
 }
+
 .navbar img {
   width: 50px;
   height: 50px;

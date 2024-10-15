@@ -1,5 +1,5 @@
 .header {
-  min-height: 100svh;
+  min-height: 90svh;
   background: linear-gradient(rgba(178, 33, 46, 1), rgba(252, 252, 252, 0.5)),
     url("/images/hero-img.jpg");
   background-size: cover;
@@ -99,12 +99,27 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 0.5rem;
-  padding: 0.75rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-secondary);
+  transition: var(--transition-normal);
 }
+.answer:hover {
+  background-color: var(--white);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+.answer:hover big,
+.answer:hover small {
+  color: var(--color-main);
+  transition: var(--transition-normal);
+}
+
 .answer big {
   color: var(--white);
   font-weight: 700;
 }
+
 .answer small {
   color: var(--white);
   line-height: 2;

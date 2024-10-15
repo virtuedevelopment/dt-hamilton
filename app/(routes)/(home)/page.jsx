@@ -82,11 +82,11 @@ export default function Home() {
             covered.
           </h1>
           <div className={styles.button_box}>
-            <Link href={"/"} className="button-white">
+            <Link href={"/services"} className="button-white">
               View our Services
             </Link>
 
-            <Link href={"/"} className="button-black">
+            <Link href={"/contact"} className="button-black">
               Get in Touch
             </Link>
           </div>
