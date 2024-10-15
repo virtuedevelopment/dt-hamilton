@@ -46,6 +46,70 @@
   gap: 0.75rem;
 }
 
+.services {
+  min-height: 75svh;
+  padding: var(--padding-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.services h2 {
+  font-size: var(--font-size-subhead);
+  color: var(--color-main);
+}
+.servicebox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2.5rem;
+}
+
+.faq {
+  background: linear-gradient(rgba(33, 33, 33, 0.5), rgba(22, 22, 22, 1)),
+    url("https://images.pexels.com/photos/2747901/pexels-photo-2747901.jpeg?auto=compress&cs=tinysrgb&w=800");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--padding-main);
+  padding-block: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+}
+.faq h2 {
+  font-size: var(--font-size-subhead);
+  color: var(--white);
+}
+.question_box {
+  width: 80%;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+.answer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+.answer big {
+  color: var(--white);
+  font-weight: 700;
+}
+.answer small {
+  color: var(--white);
+  line-height: 2;
+}
+
 .quote_form {
   min-height: 100svh;
   display: grid;
@@ -76,14 +140,14 @@
   margin-block: 1rem;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
 .info_section .image_box img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   justify-self: center;
   align-self: center;
@@ -115,7 +179,11 @@
   /* Tablet Styles */
   /* Adjust styles as needed */
 
-  .quote_form{
+  .quote_form {
+    grid-template-columns: 1fr;
+  }
+  .question_box {
+    width: 100%;
     grid-template-columns: 1fr;
   }
 }

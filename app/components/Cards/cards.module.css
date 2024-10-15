@@ -1,0 +1,22 @@
+.service_card {
+  width: 350px;
+  height: 525px;
+
+  box-shadow: var(--box-shadow-heavy);
+}
+.service_card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.service_card big {
+  color: var(--black);
+  font-weight: 600;
+  padding: 1rem;
+}
+.service_card p {
+  padding: 1rem;
+  color: var(--grey-light);
+  margin-bottom: 1rem;
+}

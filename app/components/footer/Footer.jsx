@@ -17,14 +17,14 @@ export default function Footer() {
         </p>
         <p>
           {" "}
-          <Mail /> service_dthamiltonmechanicalinc@yahoo.com
+          <Mail /> service@dt-hamilton.ca
         </p>
       </div>
 
       <div className={styles.footer_info}>
         <p>DT HAMILTON MECHANICAL (OTTAWA) INC. 2024</p>
 
-        <Link href={'https://www.virtuetech.live/'}>Powered by Virtue</Link>
+        <Link href={"https://www.virtuetech.live/"}>Powered by Virtue</Link>
       </div>
     </footer>
   );
