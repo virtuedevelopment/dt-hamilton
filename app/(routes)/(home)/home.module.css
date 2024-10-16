@@ -1,5 +1,5 @@
 .header {
-  min-height: 90svh;
+  min-height: 80svh;
   background: linear-gradient(rgba(178, 33, 46, 1), rgba(252, 252, 252, 0.5)),
     url("/images/hero-img.jpg");
   background-size: cover;

@@ -71,7 +71,6 @@ export default function Home() {
   return (
     <>
       <header className={styles.header}>
-        <Navbar />
         <section className={styles.header_section}>
           <span className={styles.title}>
             <img src="/assets/logo-white.svg" alt="logo" />
@@ -82,8 +81,8 @@ export default function Home() {
             covered.
           </h1>
           <div className={styles.button_box}>
-            <Link href={"/services"} className="button-white">
-              View our Services
+            <Link href={"/about"} className="button-white">
+              About Us
             </Link>
 
             <Link href={"/contact"} className="button-black">

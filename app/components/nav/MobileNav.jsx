@@ -29,7 +29,7 @@ export default function MobileNav() {
 
         <ul className={styles.mobile_options}>
           {configurations.routes.mainRoutes.map((route) => (
-            <li key={route.url}>
+            <li onClick={toggleMenu} key={route.url}>
               <Link href={route.url}>{route.route}</Link>
             </li>
           ))}

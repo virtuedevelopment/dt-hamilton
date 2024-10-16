@@ -1,4 +1,29 @@
+.info_section {
+  width: 100%;
+  background-color: var(--white);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.info_section small {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-main);
+  font-size: var(--font-size-small);
+  text-decoration: underline;
+}
+.info_section small svg {
+  width: 12px;
+  height: 12px;
+}
+
 .navbar {
+  background-color: var(--black);
   width: 100%;
   display: flex;
   align-items: center;
@@ -7,8 +32,8 @@
 }
 
 .navbar img {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 .navbar .main_menu {
   min-width: 50%;
@@ -25,6 +50,7 @@
   color: var(--white);
   cursor: pointer;
   transition: var(--transition-normal);
+  font-weight: 300;
 }
 .navbar .main_menu li a:hover {
   text-decoration: underline;
@@ -36,7 +62,7 @@
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: solid 1px var(--white);
   color: var(--white);
   transition: var(--transition-normal);
@@ -55,21 +81,22 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  border: solid 1.5px var(--color-main);
-  color: var(--color-main);
+  border: none;
+  background-color: var(--color-main);
+  color: var(--white);
   transition: var(--transition-normal);
   cursor: pointer;
 }
 .mobile_menu_button:hover {
   border: none;
-  color: var(--white);
-  background-color: var(--color-main);
+  color: var(--color-main);
+  background-color: var(--white);
   transition: var(--transition-normal);
 }
 
 .mobile_menu_open {
   width: 300px;
-  background-color: var(--white);
+  background-color: var(--black);
   height: 100svh;
   position: fixed;
   top: 0;
@@ -85,7 +112,7 @@
 }
 .mobile_menu_closed {
   width: 300px;
-  background-color: var(--white);
+  background-color: var(--black);
   height: 100svh;
   position: fixed;
   top: 0;
@@ -115,7 +142,7 @@
 }
 .mobile_options li a {
   text-decoration: none;
-  color: var(--color-main);
+  color: var(--white);
   text-align: right;
   padding-block: 0.75rem;
   padding-left: 1rem;
@@ -131,6 +158,9 @@
 @media (max-width: 1000px) {
   /* Tablet Styles */
   /* Adjust styles as needed */
+  .navbar {
+    padding: 0.5rem 1.5rem;
+  }
 
   .navbar .main_menu {
     display: none;
