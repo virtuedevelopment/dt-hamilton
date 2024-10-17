@@ -1,0 +1,33 @@
+.header {
+  min-height: 60svh;
+  background: linear-gradient(rgba(33, 72, 178, 0.95), rgba(33, 72, 178, 0.25)),
+    url("/images/about-img-02.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: var(--padding-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header h1 {
+  color: var(--white);
+  font-weight: 700;
+}
+.header h6 {
+  color: var(--white);
+  font-size: var(--font-size-sub);
+  font-weight: 500;
+}
+
+.services {
+  padding: var(--padding-main);
+  background-color: var(--white);
+  min-height: 50svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
