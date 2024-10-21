@@ -27,7 +27,10 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <Link href={"/"} className={`${styles.get_quote} button-main`}>
+        <Link
+          href={"/#quote-section"}
+          className={`${styles.get_quote} button-main`}
+        >
           Get a quote
         </Link>
         <MobileNav />

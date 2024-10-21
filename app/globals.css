@@ -57,8 +57,8 @@
   /* Transition and Effects */
   --transition-normal: 0.4s ease-in-out;
 
-  --box-shadow-light: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
-  --box-shadow-heavy: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-light: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  --box-shadow-heavy: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
 
   /* Animations */
   --slidedown: slidedown 2s ease forwards;
@@ -162,13 +162,22 @@ body {
 }
 
 .form {
-  min-width: 500px;
-  min-height: 500px;
   box-shadow: var(--box-shadow-heavy);
   padding: var(--padding-main);
-  grid-template-columns: 1fr 1fr;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.gridbox {
+  width: 100%;
+  height: 100%;
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0.75rem;
 }
 .inputbox {
   display: flex;
@@ -257,11 +266,11 @@ body {
     --padding-navigation: 0.5rem;
   }
 
-  .form {
+  .gridbox {
     min-width: none;
     grid-template-columns: 1fr;
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .inputbox {
     display: flex;

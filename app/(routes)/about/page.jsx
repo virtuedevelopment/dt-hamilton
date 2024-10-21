@@ -46,7 +46,7 @@ export default function page() {
             Let us partner with you to create a comfortable, energy-efficient
             space that you can rely on.
           </p>
-          <Link href={"/"} className="button-main">
+          <Link href={"/services"} className="button-main">
             Our Services
           </Link>
         </div>
@@ -85,7 +85,7 @@ export default function page() {
           brand-new installation, our team is here to help. Book your
           consultation now and experience the difference!
         </p>
-        <Link href={"/getQuote"} className="button-white">
+        <Link href={"/#quote-section"} className="button-white">
           Get Quote
         </Link>
       </section>

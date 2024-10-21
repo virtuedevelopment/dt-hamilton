@@ -116,7 +116,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.quote_form}>
+      <section id="quote-section" className={styles.quote_form}>
         <div className={styles.info_section}>
           <h3>
             Please fill out this form so we can provide the services you need.
