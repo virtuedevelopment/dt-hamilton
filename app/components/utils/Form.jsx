@@ -10,11 +10,32 @@ export default function Form() {
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  //utils
+  const [isLoading, setIsLoading] = useState(false); //for submit button when it's clicked
+  const [submitted, setSubmitted] = useState(false); //triggered whenever a form is successfully handed in as a div appearing on screen
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = { name, phone, email, service, date, message };
-    console.log(formData);
-    // Add form submission logic here
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log("Form submitted and emails sent successfully.");
+        setSubmitted(true);
+      } else {
+        console.error("Failed to submit the form.");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
   return (
@@ -88,9 +109,11 @@ export default function Form() {
         </div>
       </div>
 
-      <button className="button-main" type="submit">
-        Submit
+      <button className="button-main" type="submit" disabled={isLoading}>
+        {isLoading ? "Submitting..." : "Submit"}
       </button>
+
+      {submitted && <div>Form submitted successfully! Check your email.</div>}
     </form>
   );
 }
