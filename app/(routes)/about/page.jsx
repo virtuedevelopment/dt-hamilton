@@ -81,8 +81,8 @@ export default function page() {
         <p>
           Ready to elevate your comfort? Contact DT Hamilton HVAC today for
           expert solutions that keep your space efficient, reliable, and
-          comfortable all year round. Whether it's maintenance, repairs, or a
-          brand-new installation, our team is here to help. Book your
+          comfortable all year round. Whether it&apos;s maintenance, repairs, or
+          a brand-new installation, our team is here to help. Book your
           consultation now and experience the difference!
         </p>
         <Link href={"/#quote-section"} className="button-white">
