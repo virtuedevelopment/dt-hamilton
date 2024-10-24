@@ -23,21 +23,19 @@ export default function page() {
             comprehensive range of services ensures that your space stays
             comfortable and functional in every season.
             <br />
-            <br />
+            {/* <br />
             Our team of skilled professionals brings extensive expertise,
             performing everything from routine maintenance and emergency repairs
             to complete system installations and upgrades. We work with
             cutting-edge technologies and high-efficiency systems designed to
             improve air quality, lower energy consumption, and enhance
             operational reliability.
-            <br />
+            <br /> */}
             <br />
             We understand that every environment has distinct demands, so we
             take a customized approach to each project, ensuring all
             installations and repairs are optimized for maximum performance. At
-            DT Hamilton HVAC, client satisfaction is our top priority, and we
-            pride ourselves on delivering exceptional service and dependable
-            solutions that exceed expectations.
+            DT Hamilton HVAC, client satisfaction is our top priority.
             <br />
             <br />
             Whether you need seasonal maintenance, ductwork design,
@@ -58,12 +56,12 @@ export default function page() {
       <section className={styles.features}>
         <span className={styles.card}>
           <Wrench />
-          <p>Premium HVAC Solutions</p>
+          <p>HVAC Solutions</p>
         </span>
 
         <span className={styles.card}>
           <Headset />
-          <p>Exceptional Customer Support</p>
+          <p>Customer Support</p>
         </span>
 
         <span className={styles.card}>

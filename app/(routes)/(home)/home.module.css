@@ -119,7 +119,6 @@
   color: var(--white);
   font-weight: 700;
 }
-
 .answer small {
   color: var(--white);
   line-height: 2;
@@ -133,7 +132,11 @@
 .quote_form .info_section {
   width: 100%;
   height: 100%;
-  background-color: var(--color-secondary);
+  background: linear-gradient(rgba(33, 73, 178, 0.95), rgba(33, 73, 178, 0.75)),
+    url("/images/info-form.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -144,7 +147,7 @@
 .info_section h3 {
   text-align: center;
   color: var(--white);
-  font-size: var(--font-size-sub);
+  font-size: var(--font-size-subhead);
 }
 .info_section p {
   text-align: center;

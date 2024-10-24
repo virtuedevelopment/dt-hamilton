@@ -1,7 +1,10 @@
 .service_card {
   width: 350px;
-  height: 525px;
-
+  height: 575px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   box-shadow: var(--box-shadow-heavy);
 }
 .service_card img {
@@ -13,10 +16,12 @@
 .service_card big {
   color: var(--black);
   font-weight: 600;
-  padding: 1rem;
+  padding: 0.5rem;
+  text-align: center;
 }
 .service_card p {
-  padding: 1rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
   color: var(--grey-light);
   margin-bottom: 1rem;
 }

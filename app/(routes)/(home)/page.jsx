@@ -1,25 +1,16 @@
 import styles from "./home.module.css";
 import configurations from "@/_data/config";
 import Link from "next/link";
-import Navbar from "@/app/components/nav/Navbar";
 import Form from "@/app/components/utils/Form";
 import ServiceCard from "@/app/components/Cards/ServiceCard";
-
-const images = [
-  "https://images.pexels.com/photos/24828656/pexels-photo-24828656/free-photo-of-ballu-air-conditioner-condenser-unit-on-the-wall-of-the-building.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/20046692/pexels-photo-20046692/free-photo-of-air-conditioner-on-outside-wall.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/18352564/pexels-photo-18352564/free-photo-of-ivy-on-house-wall-and-roof-tiles.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/13820151/pexels-photo-13820151.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/11256510/pexels-photo-11256510.jpeg?auto=compress&cs=tinysrgb&w=800",
-  "https://images.pexels.com/photos/9599922/pexels-photo-9599922.jpeg?auto=compress&cs=tinysrgb&w=800",
-]; //images in form
 
 const faq = [
   {
     question: "What services does DT Hamilton provide?",
     answer:
-      "DT Hamilton offers a wide range of services including HVAC installation and repair, residential and commercial services, system maintenance, construction-related HVAC installations, and ductwork design, installation, and repairs.",
+      "DT Hamilton offers a wide range of services, including HVAC installation and repair, residential and commercial HVAC, system maintenance, construction HVAC, ductwork design and repair, geothermal and heat pump systems, natural gas and propane systems, boilers, water heaters, chillers, rooftop units, air handlers, VRF/VRV systems, air quality solutions, and ventilation systems.",
   },
+
   {
     question: "Do you offer both residential and commercial HVAC services?",
     answer:
@@ -38,7 +29,7 @@ const faq = [
   {
     question: "What kind of ductwork services do you provide?",
     answer:
-      "We offer a variety of ductwork services, including installation, repair, cleaning, and sealing. Proper ductwork is essential for distributing air evenly throughout your home or business, improving energy efficiency and comfort.",
+      "We offer a variety of ductwork services, including installation, repair, and sealing. Proper ductwork is essential for distributing air evenly throughout your home or business, improving energy efficiency and comfort.",
   },
   {
     question: "How do I know if my HVAC system needs repair or replacement?",
@@ -74,12 +65,11 @@ export default function Home() {
         <section className={styles.header_section}>
           <span className={styles.title}>
             <img src="/assets/logo-white.svg" alt="logo" />
-            <h3>DT HAMILTION MECHANICAL (OTTAWA) INC.</h3>
+            <h3>
+              Heating, Cooling, and Ventilation. We&apos;ve got you covered.
+            </h3>
           </span>
-          <h1>
-            Heating, Cooling, and Ventilation. <br /> We&apos;ve got you
-            covered.
-          </h1>
+          <h1>DT HAMILTION MECHANICAL (OTTAWA) INC.</h1>
           <div className={styles.button_box}>
             <Link href={"/about"} className="button-white">
               About Us
@@ -126,11 +116,11 @@ export default function Home() {
             alike.
           </p>
 
-          <div className={styles.image_box}>
+          {/* <div className={styles.image_box}>
             {images.map((img, index) => (
               <img key={index} src={img} />
             ))}
-          </div>
+          </div> */}
         </div>
         <div className={styles.form_box}>
           <h2>Get a Quote Now.</h2>

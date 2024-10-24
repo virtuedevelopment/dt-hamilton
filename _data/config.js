@@ -1,4 +1,5 @@
 const configurations = {
+
     // Site metadata and SEO
     metadata: {
         title: 'DT Hamilton Ottawa ©',  // Site Title
@@ -49,37 +50,61 @@ const configurations = {
 
     services: [
         {
-            service_name: "HVAC Services",
-            service_desc: "Comprehensive HVAC solutions including installation, repair, and maintenance for both heating and cooling systems. We ensure your home or business is comfortable year-round.",
+            service_name: "Comprehensive HVAC Services",
+            service_desc: "Full HVAC solutions, including installation, repair, and maintenance for heating, cooling, and ventilation systems. We optimize energy efficiency to keep your home or business comfortable year-round.",
             service_img: "https://images.pexels.com/photos/257770/pexels-photo-257770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         },
         {
             service_name: "Residential HVAC",
-            service_desc: "Our residential HVAC services focus on creating a comfortable living environment with efficient and reliable heating and cooling systems for your home.",
+            service_desc: "Customized HVAC solutions for your home, including installation of furnaces, air conditioning, heat pumps, and geothermal systems. We also enhance indoor air quality with humidifiers, dehumidifiers, and HRV/ERV systems.",
             service_img: "https://images.pexels.com/photos/24814755/pexels-photo-24814755/free-photo-of-air-conditioners-on-wall-of-block-of-flats.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
             service_name: "Commercial HVAC",
-            service_desc: "DT Hamilton offers commercial HVAC solutions for businesses of all sizes, from system installation to ongoing maintenance, ensuring efficient climate control in your building.",
+            service_desc: "DT Hamilton offers tailored HVAC solutions for businesses, including installation and maintenance of rooftop units, VRF/VRV systems, chillers, dry coolers, pumps, and air handlers. Our goal is to ensure efficient climate control and energy management.",
             service_img: "https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
             service_name: "HVAC Maintenance",
-            service_desc: "Regular maintenance services to ensure your HVAC systems are running efficiently. We offer service plans for both residential and commercial properties.",
+            service_desc: "Regular maintenance services to ensure your HVAC systems operate efficiently. We service boilers, furnaces, pumps, heat pumps, rooftop units, and air handlers to prevent breakdowns and prolong system lifespan.",
             service_img: "https://images.pexels.com/photos/13820151/pexels-photo-13820151.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
             service_name: "Construction HVAC",
-            service_desc: "We provide HVAC system design and installation services for new construction projects, ensuring that the heating, cooling, and ventilation systems are properly integrated.",
+            service_desc: "We provide HVAC system design and installation for new construction projects, integrating geothermal systems, natural gas, propane, heat pumps, and rooftop units into your project specifications.",
             service_img: "https://images.pexels.com/photos/17159024/pexels-photo-17159024/free-photo-of-large-air-conditioner.jpeg?auto=compress&cs=tinysrgb&w=600"
         },
         {
-            service_name: "Ductwork",
-            service_desc: "Expert ductwork services including installation, repair, cleaning, and sealing to ensure optimal air distribution and system efficiency in your home or business.",
-            service_img: "https://images.pexels.com/photos/17792395/pexels-photo-17792395/free-photo-of-pipes-and-air-conditioners-at-the-back-of-the-building.jpeg?auto=compress&cs=tinysrgb&w=600"
+            service_name: "Ductwork Services",
+            service_desc: "Expert ductwork services, including installation, repair, and sealing. Proper ductwork ensures optimal air distribution and system efficiency for both residential and commercial properties.",
+            service_img: "https://d1y2bcnc5x6gss.cloudfront.net/ductwork_4b057e154e.png"
+        },
+        {
+            service_name: "Boilers and Domestic Water Heaters",
+            service_desc: "Installation and maintenance of boilers and domestic water heaters to ensure reliable hot water supply and heating for your home or business.",
+            service_img: "https://www.thespruce.com/thmb/MTkfmQhH9LXTPk-K0uGS63yNz7k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1322406919-df33c24df1e74e99a41c95ee982daee9.jpg"
+        },
+        {
+            service_name: "Geothermal and Heat Pump Systems",
+            service_desc: "Energy-efficient geothermal and heat pump solutions for both heating and cooling, helping reduce energy consumption and environmental impact.",
+            service_img: "https://brahmco.ca/wp-content/uploads/2023/04/iStock-1444133244-min-scaled.jpg"
+        },
+        {
+            service_name: "Air Quality and Ventilation Systems",
+            service_desc: "Enhance indoor air quality with our solutions, including air handlers, exhaust fans, HRV/ERV systems, humidifiers, and dehumidifiers.",
+            service_img: "https://www.s4btradeally.com/wp-content/uploads/2021/01/article-img-12.jpg"
+        },
+        {
+            service_name: "Natural Gas & Propane Systems",
+            service_desc: "Installation and service of natural gas and propane systems, including furnaces, hot water heaters, and heating equipment, ensuring safe and efficient energy use.",
+            service_img: "https://www.griffithenergyservices.com/wp-content/uploads/2019/01/PRO-propane-tanks-heating-fuel-e1546446674171.jpg"
+        },
+        {
+            service_name: "Chillers and Dry Coolers",
+            service_desc: "We install and maintain chillers and dry coolers for commercial applications, ensuring efficient temperature control and heat dissipation.",
+            service_img: "https://waterchillers.com/wp-content/uploads/2023/09/dry_cooler_vs._chiller.jpg"
         }
     ],
-
 
     // Terms of service and other legal links
     legal: {
@@ -93,6 +118,7 @@ const configurations = {
         { category: 'Example', sub_categories: ['Sub-example'] },
         // More categories
     ],
+
 };
 
 export default configurations;

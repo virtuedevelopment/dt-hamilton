@@ -18,7 +18,7 @@ export default function Navbar() {
       </div>
       <nav className={styles.navbar}>
         <Link href={"/"}>
-          <img src="/assets/logo-white.svg" alt="logo" />
+          <img src="/assets/logo-color.svg" alt="logo" />
         </Link>
         <ul className={styles.main_menu}>
           {configurations.routes.mainRoutes.map((route) => (
