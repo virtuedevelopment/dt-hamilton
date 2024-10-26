@@ -49,7 +49,7 @@ export default function page() {
           </Link>
         </div>
         <div className={styles.image}>
-          <img src="/images/about-img-02.jpeg" alt="Image of roof with A/C" />
+          <img src="https://noltec-eng.com/wp-content/uploads/2023/12/HVAC-Heating-Air-Conditioning-Ventilation-scaled.jpeg" alt="Image of roof with A/C" />
         </div>
       </section>
 

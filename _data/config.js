@@ -67,7 +67,7 @@ const configurations = {
         {
             service_name: "HVAC Maintenance",
             service_desc: "Regular maintenance services to ensure your HVAC systems operate efficiently. We service boilers, furnaces, pumps, heat pumps, rooftop units, and air handlers to prevent breakdowns and prolong system lifespan.",
-            service_img: "https://images.pexels.com/photos/13820151/pexels-photo-13820151.jpeg?auto=compress&cs=tinysrgb&w=600"
+            service_img: "https://modecomfort.com/wp-content/uploads/2024/04/img-hvac-technician-working-on-roof-1210x423.webp"
         },
         {
             service_name: "Construction HVAC",
@@ -84,11 +84,11 @@ const configurations = {
             service_desc: "Installation and maintenance of boilers and domestic water heaters to ensure reliable hot water supply and heating for your home or business.",
             service_img: "https://www.thespruce.com/thmb/MTkfmQhH9LXTPk-K0uGS63yNz7k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1322406919-df33c24df1e74e99a41c95ee982daee9.jpg"
         },
-        {
-            service_name: "Geothermal and Heat Pump Systems",
-            service_desc: "Energy-efficient geothermal and heat pump solutions for both heating and cooling, helping reduce energy consumption and environmental impact.",
-            service_img: "https://brahmco.ca/wp-content/uploads/2023/04/iStock-1444133244-min-scaled.jpg"
-        },
+        // {
+        //     service_name: "Geothermal and Heat Pump Systems",
+        //     service_desc: "Energy-efficient geothermal and heat pump solutions for both heating and cooling, helping reduce energy consumption and environmental impact.",
+        //     service_img: "https://brahmco.ca/wp-content/uploads/2023/04/iStock-1444133244-min-scaled.jpg"
+        // },
         {
             service_name: "Air Quality and Ventilation Systems",
             service_desc: "Enhance indoor air quality with our solutions, including air handlers, exhaust fans, HRV/ERV systems, humidifiers, and dehumidifiers.",

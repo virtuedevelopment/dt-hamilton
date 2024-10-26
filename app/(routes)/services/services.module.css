@@ -1,7 +1,7 @@
 .header {
   min-height: 60svh;
   background: linear-gradient(rgba(33, 72, 178, 0.95), rgba(33, 72, 178, 0.25)),
-    url("/images/about-img-02.jpeg");
+    url("https://noltec-eng.com/wp-content/uploads/2023/12/HVAC-Heating-Air-Conditioning-Ventilation-scaled.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
