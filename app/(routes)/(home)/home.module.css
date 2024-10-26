@@ -1,7 +1,7 @@
 .header {
   min-height: 80svh;
   background: linear-gradient(rgba(178, 33, 46, 1), rgba(252, 252, 252, 0.5)),
-    url("/images/hero-img.jpg");
+    url("https://energyright.com/wp-content/uploads/2023/09/TVA_HVACHeroImg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

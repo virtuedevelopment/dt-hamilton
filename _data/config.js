@@ -57,12 +57,12 @@ const configurations = {
         {
             service_name: "Residential HVAC",
             service_desc: "Customized HVAC solutions for your home, including installation of furnaces, air conditioning, heat pumps, and geothermal systems. We also enhance indoor air quality with humidifiers, dehumidifiers, and HRV/ERV systems.",
-            service_img: "https://images.pexels.com/photos/24814755/pexels-photo-24814755/free-photo-of-air-conditioners-on-wall-of-block-of-flats.jpeg?auto=compress&cs=tinysrgb&w=600"
+            service_img: "https://www.hollingsworth-vose.com/wp-content/uploads/residential-HVAC-scaled-e1636954047390-1024x317.jpeg"
         },
         {
             service_name: "Commercial HVAC",
             service_desc: "DT Hamilton offers tailored HVAC solutions for businesses, including installation and maintenance of rooftop units, VRF/VRV systems, chillers, dry coolers, pumps, and air handlers. Our goal is to ensure efficient climate control and energy management.",
-            service_img: "https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&w=600"
+            service_img: "https://www.diversifiedhvac.com/wp-content/uploads/2023/12/commercial-hvac-components.jpg"
         },
         {
             service_name: "HVAC Maintenance",
