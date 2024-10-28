@@ -72,7 +72,7 @@ export default function Home() {
       <header className={styles.header}>
         <section className={styles.header_section}>
           <span className={styles.title}>
-            <img src="/assets/logo-white.svg" alt="logo" />
+            <img src="/assets/logo-color.svg" alt="logo" />
             <h3>
               Heating, Cooling, and Ventilation. We&apos;ve got you covered.
             </h3>

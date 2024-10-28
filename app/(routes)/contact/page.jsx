@@ -14,7 +14,7 @@ export default function page() {
   return (
     <section className={styles.contact_section}>
       <div className={styles.image_box}>
-        <img src="/images/contact-page-photo.webp" alt="HVAC worker" />
+        <img src="https://www.shutterstock.com/shutterstock/videos/3603264329/thumb/1.jpg?ip=x480" alt="HVAC worker" />
         <h1>Contact us</h1>
         <h6>Get a quote now!</h6>
       </div>
