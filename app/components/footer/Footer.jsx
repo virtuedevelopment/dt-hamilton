@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <img src="/assets/logo-white.svg" alt="logo" />
+      <img src="/assets/logo-color.svg" alt="logo" />
 
       <h2>DT HAMILTION MECHANICAL (OTTAWA) INC.</h2>
 
