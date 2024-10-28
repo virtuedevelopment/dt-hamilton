@@ -215,6 +215,23 @@ body {
   color: var(--grey-dark);
 }
 
+.submitted-message {
+  position: fixed;
+  width: 325px;
+  padding: 2rem;
+  border: solid 3px green;
+  background-color: rgba(110, 196, 117, 0.95);
+  color: var(--white);
+  border-radius: var(--border-rad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+}
+
 /* Animations */
 @keyframes slidedown {
   from {

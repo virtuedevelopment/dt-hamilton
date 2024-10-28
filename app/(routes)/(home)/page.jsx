@@ -3,6 +3,14 @@ import configurations from "@/_data/config";
 import Link from "next/link";
 import Form from "@/app/components/utils/Form";
 import ServiceCard from "@/app/components/Cards/ServiceCard";
+import seo_config from "@/_data/seo";
+
+export const metadata = {
+  title: seo_config.home.title,
+  description: seo_config.home.description,
+  keywords: seo_config.home.keywords,
+  author: seo_config.home.author,
+};
 
 const faq = [
   {

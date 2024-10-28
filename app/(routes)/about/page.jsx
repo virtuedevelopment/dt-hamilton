@@ -1,7 +1,15 @@
 import React from "react";
+import seo_config from "@/_data/seo";
 import styles from "./about.module.css";
 import Link from "next/link";
 import { Wrench, Headset, House, LeafyGreen } from "lucide-react";
+
+export const metadata = {
+  title: seo_config.about.title,
+  description: seo_config.about.description,
+  keywords: seo_config.about.keywords,
+  author: seo_config.about.author,
+};
 
 export default function page() {
   return (
@@ -49,7 +57,10 @@ export default function page() {
           </Link>
         </div>
         <div className={styles.image}>
-          <img src="https://noltec-eng.com/wp-content/uploads/2023/12/HVAC-Heating-Air-Conditioning-Ventilation-scaled.jpeg" alt="Image of roof with A/C" />
+          <img
+            src="https://noltec-eng.com/wp-content/uploads/2023/12/HVAC-Heating-Air-Conditioning-Ventilation-scaled.jpeg"
+            alt="Image of roof with A/C"
+          />
         </div>
       </section>
 

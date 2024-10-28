@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import configurations from "@/_data/config";
 
 export default function Form() {
@@ -12,10 +12,12 @@ export default function Form() {
 
   //utils
   const [isLoading, setIsLoading] = useState(false); //for submit button when it's clicked
-  const [submitted, setSubmitted] = useState(false); //triggered whenever a form is successfully handed in as a div appearing on screen
+  const [submitted, setSubmitted] = useState(false); //triggered when form is successfully submitted
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Start loading
+
     const formData = { name, phone, email, service, date, message };
 
     try {
@@ -29,12 +31,19 @@ export default function Form() {
 
       if (response.ok) {
         console.log("Form submitted and emails sent successfully.");
-        setSubmitted(true);
+        setSubmitted(true); // Show success message
+
+        // Hide the message after 3 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 3000);
       } else {
         console.error("Failed to submit the form.");
       }
     } catch (error) {
       console.error("An error occurred:", error);
+    } finally {
+      setIsLoading(false); // Stop loading
     }
   };
 
@@ -113,7 +122,11 @@ export default function Form() {
         {isLoading ? "Submitting..." : "Submit"}
       </button>
 
-      {submitted && <div>Form submitted successfully! Check your email.</div>}
+      {submitted && (
+        <div className="submitted-message">
+          Form submitted successfully! Please check your email.
+        </div>
+      )}
     </form>
   );
 }
