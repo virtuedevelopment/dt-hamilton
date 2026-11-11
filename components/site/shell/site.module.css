@@ -1,0 +1,148 @@
+.shell {
+  --red: var(--color-main);
+  --blue: var(--color-secondary);
+  --ink: #212121;
+  --paper: #fcfcfc;
+  --line: #d8d8d8;
+  --muted: #555;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+}
+.shell { position: relative; background: var(--paper); color: var(--ink); line-height: 1.55; }
+.shell a { color: inherit; }
+.shell :is(a, button):focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.wrap { width: min(100%, 78rem); margin-inline: auto; padding-inline: var(--gutter); }
+.skip { position: absolute; top: -10rem; z-index: 4; background: white; color: var(--ink); padding: .7rem 1rem; }
+.skip:focus { top: 0; left: 0; }
+.siteHeader { position: relative; z-index: 2; color: white; background: var(--ink); }
+.siteHeader[data-overlay="true"] { position: absolute; inset: 0 0 auto; background: linear-gradient(#151515e6, #15151585); }
+.navRow { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; }
+.siteHeader[data-overlay="true"] .navRow { border-bottom: 1px solid #fff6; }
+.brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; font-size: 1.15rem; font-weight: 700; line-height: .98; }
+.brand img { width: 42px; height: 30px; object-fit: contain; }
+.brand strong { display: block; margin-top: .2rem; font-size: .74rem; font-weight: 500; letter-spacing: .015em; }
+.siteHeader .desktopNav { display: flex; gap: clamp(.8rem, 3vw, 2.3rem); }
+.siteHeader .desktopNav a { text-decoration: none; font-weight: 600; font-size: .92rem; }
+.siteHeader .desktopNav a:hover, .footer a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.desktopNav a[aria-current="page"] { text-decoration: underline; text-decoration-color: #e67982; text-underline-offset: .4em; }
+.button { display: inline-flex; min-height: 46px; padding: .65rem .95rem; align-items: center; gap: .7rem; border: 1px solid transparent; border-radius: 0; font-weight: 700; font-size: .91rem; text-decoration: none; transition: background .18s, transform .18s; }
+.button:hover { transform: translateY(-2px); }
+.button.red { background: var(--red); color: white; }
+.button.red:hover { background: #941d28; }
+.button.white { background: white; color: var(--ink); }
+.button.outline { border-color: #fffc; color: white; background: #212121b0; }
+.button.outline:hover { background: #212121; }
+.footer { background: var(--ink); color: white; padding-block: clamp(2rem, 4vw, 2.5rem) 1.25rem; }
+.footerGrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.25rem, 4vw, 3rem); align-items: start; }
+.footer h2 { margin: 0; font-size: 1.08rem; line-height: 1.25; letter-spacing: -.02em; margin-bottom: .375rem; }
+.footer nav, .footer address { display: grid; gap: .375rem; font-size: .9375rem; line-height: 1.4; font-style: normal; }
+.footer nav a, .footer address a { text-decoration: none; overflow-wrap: anywhere; }
+.footer .footerEnd { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; margin-top: 1.5rem; padding-top: .875rem; border-top: 1px solid #fff4; color: #ddd; font-size: .87rem; }
+
+
+.siteHeader .menuButton {
+  display: none;
+  min-width: 46px;
+  min-height: 46px;
+  border: 1px solid #fffc;
+  border-radius: 0;
+  background: #212121cc;
+  color: white;
+  cursor: pointer;
+}
+
+.mobileDrawer {
+  z-index: 101;
+  width: min(calc(100% - 2.75rem), 24rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.5rem;
+  background: #fcfcfc;
+  color: #212121;
+  border-left: 4px solid var(--color-main);
+  box-shadow: -1rem 0 3rem #0004;
+}
+
+:global([data-vc-drawer-overlay]):has(+ .mobileDrawer) {
+  z-index: 100;
+  background: #151515b5;
+}
+
+.mobileDrawer :global([data-vc-slot="header"]) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.mobileDrawer :global([data-vc-slot="title"]) { font-size: 1.75rem; line-height: 1.15; }
+.mobileDrawer :global([data-vc-slot="description"]) { color: #555; font-size: .92rem; margin-top: .25rem; }
+.mobileDrawer :global([data-vc-slot="close"]) {
+  flex: none;
+  min-height: 44px;
+  padding: .4rem .7rem;
+  border: 1px solid #555;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.drawerNavigation { display: grid; border-top: 1px solid #d8d8d8; }
+.drawerNavigation a {
+  display: flex;
+  min-height: 50px;
+  padding: .65rem .25rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d8d8d8;
+  color: #212121;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.drawerNavigation a:hover { background: #ededed; }
+.drawerNavigation span { color: var(--color-secondary); }
+.drawerNavigation .drawerQuote {
+  justify-content: center;
+  margin-top: 1rem;
+  background: var(--color-main);
+  color: white;
+  border: 0;
+}
+.drawerNavigation .drawerQuote:hover { background: #941d28; }
+.mobileDrawer :is(button, a):focus-visible { outline: 3px solid var(--color-secondary); outline-offset: 2px; }
+
+
+.drawerNavigation a[aria-current="page"] { color: var(--color-secondary); }
+
+@media (max-width: 760px) {
+  .navRow { min-height: 68px; gap: 1rem; }
+  .siteHeader .desktopNav, .siteHeader .desktopPhone { display: none; }
+  .siteHeader .menuButton { display: inline-flex; }
+}
+
+@media (max-width: 475px) {
+  .brand { font-size: 1rem; gap: .45rem; }
+  .brand img { width: 32px; height: 25px; }
+  .brand strong { font-size: .7rem; }
+  .footerGrid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 1.25rem 1rem; }
+  .footerGrid > .brand { grid-column: 1/-1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobileDrawer[data-state="open"] { animation: drawerIn 280ms cubic-bezier(.22,.61,.36,1) both; }
+  .mobileDrawer[data-state="closed"] { animation: drawerOut 180ms ease-in both; }
+  :global([data-vc-drawer-overlay][data-state="open"]):has(+ .mobileDrawer) { animation: overlayIn 220ms ease-out both; }
+  :global([data-vc-drawer-overlay][data-state="closed"]):has(+ .mobileDrawer) { animation: overlayOut 180ms ease-in both; }
+
+  @keyframes drawerIn { from { translate: 100% 0; } to { translate: 0 0; } }
+  @keyframes drawerOut { from { translate: 0 0; } to { translate: 100% 0; } }
+  @keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes overlayOut { from { opacity: 1; } to { opacity: 0; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+  .button:hover { transform: none; }
+}

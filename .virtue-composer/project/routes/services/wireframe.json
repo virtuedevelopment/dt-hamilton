@@ -1,0 +1,665 @@
+{
+  "contractVersion": 1,
+  "artifactId": "wireframe:services",
+  "kind": "wireframe",
+  "scope": {
+    "type": "route",
+    "routeId": "services",
+    "path": "/services"
+  },
+  "status": "ready",
+  "revision": 3,
+  "createdAt": "2026-11-10T19:40:15.086Z",
+  "updatedAt": "2026-11-10T20:10:30.249Z",
+  "dependencies": [
+    {
+      "artifactId": "project-truth",
+      "revision": 4,
+      "hash": "sha256:56c77c6eb813ac3bb72e73bb7a73eadc0a94cb55d2873d219415a726f9612ab4"
+    },
+    {
+      "artifactId": "design-moves",
+      "revision": 10,
+      "hash": "sha256:8875b7e37c097da6a04cebb8fbedee3fee037758bb093d423a7972e45ed56c54"
+    }
+  ],
+  "sourceRefs": [
+    {
+      "type": "project-route",
+      "ref": "/services"
+    }
+  ],
+  "ownership": {
+    "owner": "project",
+    "managed": false,
+    "protected": true
+  },
+  "content": {
+    "contractVersion": 1,
+    "route": {
+      "routeId": "services",
+      "path": "/services",
+      "purpose": "Help visitors find the relevant service in the full catalogue.",
+      "primaryAudience": "Ottawa-area HVAC customers",
+      "primaryAction": "Explore page details or request a quote.",
+      "entryConditions": [
+        "Direct link or main navigation."
+      ],
+      "exitDestinations": [
+        "/",
+        "/about",
+        "/contact"
+      ]
+    },
+    "narrative": {
+      "thesis": "Help visitors find the relevant service in the full catalogue.",
+      "jobs": [
+        {
+          "id": "orient",
+          "purpose": "Introduce the page and its actions.",
+          "regionIds": [
+            "site-navigation",
+            "hero"
+          ]
+        },
+        {
+          "id": "explore",
+          "purpose": "Read the route-specific details and reach the next action.",
+          "regionIds": [
+            "catalogue",
+            "quote",
+            "site-footer"
+          ]
+        }
+      ]
+    },
+    "regions": [
+      {
+        "id": "site-navigation",
+        "role": "site-header",
+        "semantic": "header",
+        "order": 1,
+        "sharedKey": "site-navigation",
+        "purpose": "Give direct links to Home, About, Services, and Contact.",
+        "behaviorIds": [
+          "site-links",
+          "mobile-drawer"
+        ],
+        "sourceBindings": [
+          {
+            "path": "components/site/shell/SiteHeader.jsx",
+            "regionHook": "site-navigation"
+          },
+          {
+            "path": "components/site/shell/SiteMobileMenu.jsx",
+            "regionHook": "site-navigation"
+          }
+        ],
+        "contentSlots": [
+          {
+            "id": "navigation",
+            "kind": "navigation",
+            "state": "confirmed",
+            "criticality": "structural",
+            "sourceRef": "components/site/shell/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "site-header",
+          "purpose": "Give direct links to Home, About, Services, and Contact.",
+          "contentKinds": [
+            "navigation"
+          ],
+          "behaviors": [
+            "Open the selected public page",
+            "Show a dismissible drawer with the same route links"
+          ],
+          "states": [
+            "default"
+          ],
+          "accessibility": [
+            "Keep reading order and descriptive keyboard controls."
+          ],
+          "responsive": [
+            "Use a hamburger to open the shared mobile drawer."
+          ],
+          "constraints": {
+            "clientAllowed": true,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": []
+          },
+          "context": [
+            "Existing public route",
+            "Approved DT Hamilton design"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section",
+            "button",
+            "drawer"
+          ],
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "reasonCodes": [
+            "shared-site-design"
+          ],
+          "alternatives": []
+        },
+        "compositionDecision": {
+          "source": "established-project-pattern",
+          "id": "dt-hamilton-site-navigation",
+          "disposition": "adapt",
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "avoidWhenReview": [],
+          "alternatives": []
+        }
+      },
+      {
+        "id": "hero",
+        "role": "introduction",
+        "semantic": "section",
+        "order": 2,
+        "sharedKey": null,
+        "purpose": "Introduce the page with a clear heading over an existing HVAC photo.",
+        "behaviorIds": [
+          "hero-action"
+        ],
+        "sourceBindings": [
+          {
+            "path": "components/site/shell/InteriorHero.jsx",
+            "regionHook": "hero"
+          },
+          {
+            "path": "app/(pages)/(interior)/services/content.js",
+            "regionHook": "hero"
+          }
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "state": "confirmed",
+            "criticality": "structural",
+            "sourceRef": "app/(pages)/(interior)/services/content.js"
+          },
+          {
+            "id": "image",
+            "kind": "image",
+            "state": "representative",
+            "criticality": "structural",
+            "sourceRef": "app/(pages)/(interior)/services/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "introduction",
+          "purpose": "Introduce the page with a clear heading over an existing HVAC photo.",
+          "contentKinds": [
+            "text",
+            "image"
+          ],
+          "behaviors": [
+            "Go to the matching service page, catalogue, or quote form"
+          ],
+          "states": [
+            "default"
+          ],
+          "accessibility": [
+            "Keep reading order and descriptive keyboard controls."
+          ],
+          "responsive": [
+            "Use the same heading and action order in a narrower text column."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": []
+          },
+          "context": [
+            "Existing public route",
+            "Approved DT Hamilton design"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section",
+            "button-link"
+          ],
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "reasonCodes": [
+            "shared-site-design"
+          ],
+          "alternatives": []
+        },
+        "compositionDecision": {
+          "source": "established-project-pattern",
+          "id": "dt-hamilton-hero",
+          "disposition": "adapt",
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "avoidWhenReview": [],
+          "alternatives": []
+        }
+      },
+      {
+        "id": "catalogue",
+        "role": "content",
+        "semantic": "section",
+        "order": 3,
+        "sharedKey": null,
+        "purpose": "Present every existing service with a title and description.",
+        "behaviorIds": [],
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(interior)/services/page.jsx",
+            "regionHook": "catalogue"
+          }
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "state": "confirmed",
+            "criticality": "structural",
+            "sourceRef": "app/(pages)/(interior)/services/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "content",
+          "purpose": "Present every existing service with a title and description.",
+          "contentKinds": [
+            "text"
+          ],
+          "behaviors": [],
+          "states": [
+            "default"
+          ],
+          "accessibility": [
+            "Keep reading order and descriptive keyboard controls."
+          ],
+          "responsive": [
+            "Reflow the service grid from three columns to one."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": []
+          },
+          "context": [
+            "Existing public route",
+            "Approved DT Hamilton design"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section"
+          ],
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "reasonCodes": [
+            "shared-site-design"
+          ],
+          "alternatives": []
+        },
+        "compositionDecision": {
+          "source": "established-project-pattern",
+          "id": "dt-hamilton-catalogue",
+          "disposition": "adapt",
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "avoidWhenReview": [],
+          "alternatives": []
+        }
+      },
+      {
+        "id": "quote",
+        "role": "action",
+        "semantic": "section",
+        "order": 4,
+        "sharedKey": null,
+        "purpose": "Send visitors to the existing quote form or published phone number.",
+        "behaviorIds": [
+          "quote-action"
+        ],
+        "sourceBindings": [
+          {
+            "path": "components/site/shell/QuoteCta.jsx",
+            "regionHook": "quote"
+          }
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "state": "confirmed",
+            "criticality": "structural",
+            "sourceRef": "app/(pages)/(interior)/services/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "action",
+          "purpose": "Send visitors to the existing quote form or published phone number.",
+          "contentKinds": [
+            "text"
+          ],
+          "behaviors": [
+            "Open /contact#quote-form or the device dialer"
+          ],
+          "states": [
+            "default"
+          ],
+          "accessibility": [
+            "Keep reading order and descriptive keyboard controls."
+          ],
+          "responsive": [
+            "Wrap the quote and call actions below the copy."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": []
+          },
+          "context": [
+            "Existing public route",
+            "Approved DT Hamilton design"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section",
+            "button-link"
+          ],
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "reasonCodes": [
+            "shared-site-design"
+          ],
+          "alternatives": []
+        },
+        "compositionDecision": {
+          "source": "established-project-pattern",
+          "id": "dt-hamilton-quote",
+          "disposition": "adapt",
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "avoidWhenReview": [],
+          "alternatives": []
+        }
+      },
+      {
+        "id": "site-footer",
+        "role": "site-footer",
+        "semantic": "footer",
+        "order": 5,
+        "sharedKey": "site-footer",
+        "purpose": "Provide the shared page directory and direct contact information.",
+        "behaviorIds": [
+          "footer-links"
+        ],
+        "sourceBindings": [
+          {
+            "path": "components/site/shell/SiteFooter.jsx",
+            "regionHook": "site-footer"
+          }
+        ],
+        "contentSlots": [
+          {
+            "id": "navigation",
+            "kind": "navigation",
+            "state": "confirmed",
+            "criticality": "structural",
+            "sourceRef": "components/site/shell/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "site-footer",
+          "purpose": "Provide the shared page directory and direct contact information.",
+          "contentKinds": [
+            "navigation"
+          ],
+          "behaviors": [
+            "Open the named public route, home FAQ, or contact action"
+          ],
+          "states": [
+            "default"
+          ],
+          "accessibility": [
+            "Keep reading order and descriptive keyboard controls."
+          ],
+          "responsive": [
+            "Place the brand above the navigation and contact columns."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": []
+          },
+          "context": [
+            "Existing public route",
+            "Approved DT Hamilton design"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section"
+          ],
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "reasonCodes": [
+            "shared-site-design"
+          ],
+          "alternatives": []
+        },
+        "compositionDecision": {
+          "source": "established-project-pattern",
+          "id": "dt-hamilton-site-footer",
+          "disposition": "adapt",
+          "rationale": "Use the shared design language with project-owned content and the existing public routes.",
+          "avoidWhenReview": [],
+          "alternatives": []
+        }
+      }
+    ],
+    "responsive": {
+      "wide": {
+        "readingOrder": [
+          "site-navigation",
+          "hero",
+          "catalogue",
+          "quote",
+          "site-footer"
+        ],
+        "notes": [
+          "Use a shared shell and wide photo introduction followed by route content."
+        ]
+      },
+      "compact": {
+        "readingOrder": [
+          "site-navigation",
+          "hero",
+          "catalogue",
+          "quote",
+          "site-footer"
+        ],
+        "transformations": [
+          {
+            "regionId": "site-navigation",
+            "change": "Use a hamburger to open the shared mobile drawer.",
+            "rationale": "Preserve a readable page and consistent navigation on phones."
+          },
+          {
+            "regionId": "hero",
+            "change": "Use the same heading and action order in a narrower text column.",
+            "rationale": "Preserve a readable page and consistent navigation on phones."
+          },
+          {
+            "regionId": "catalogue",
+            "change": "Reflow the service grid from three columns to one.",
+            "rationale": "Preserve a readable page and consistent navigation on phones."
+          },
+          {
+            "regionId": "quote",
+            "change": "Wrap the quote and call actions below the copy.",
+            "rationale": "Preserve a readable page and consistent navigation on phones."
+          },
+          {
+            "regionId": "site-footer",
+            "change": "Place the brand above the navigation and contact columns.",
+            "rationale": "Preserve a readable page and consistent navigation on phones."
+          }
+        ]
+      }
+    },
+    "behaviors": [
+      {
+        "id": "site-links",
+        "regionId": "site-navigation",
+        "trigger": "Choose a page link",
+        "outcome": "Open the selected public page",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Public routes",
+        "keyboard": "Use the keyboard to reach and activate the control."
+      },
+      {
+        "id": "mobile-drawer",
+        "regionId": "site-navigation",
+        "trigger": "Open the mobile menu",
+        "outcome": "Show a dismissible drawer with the same route links",
+        "stateOwner": "component",
+        "persistence": "none",
+        "trustBoundary": "Local menu state",
+        "keyboard": "Enter opens, Escape closes, and Tab stays within the drawer."
+      },
+      {
+        "id": "hero-action",
+        "regionId": "hero",
+        "trigger": "Activate the hero link",
+        "outcome": "Go to the matching service page, catalogue, or quote form",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Public route or page anchor",
+        "keyboard": "Use the keyboard to reach and activate the control."
+      },
+      {
+        "id": "quote-action",
+        "regionId": "quote",
+        "trigger": "Activate a quote or phone link",
+        "outcome": "Open /contact#quote-form or the device dialer",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Existing contact route and device dialer",
+        "keyboard": "Use the keyboard to reach and activate the control."
+      },
+      {
+        "id": "footer-links",
+        "regionId": "site-footer",
+        "trigger": "Choose a footer link",
+        "outcome": "Open the named public route, home FAQ, or contact action",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Public routes or device handler",
+        "keyboard": "Use the keyboard to reach and activate the control."
+      }
+    ],
+    "designMoveBindings": [
+      {
+        "moveId": "consistent-public-page-shell",
+        "moveRevision": 10,
+        "target": {
+          "routeId": "services",
+          "region": "site-navigation"
+        },
+        "disposition": "adapted",
+        "decision": "Use the branded navigation, photo introduction, and grouped footer across the public pages.",
+        "regionIds": [
+          "site-navigation",
+          "hero",
+          "site-footer"
+        ]
+      }
+    ],
+    "sharedRegions": [
+      {
+        "sharedKey": "site-navigation",
+        "regionId": "site-navigation",
+        "sourceRef": "components/site/shell/SiteHeader.jsx",
+        "consumption": "required"
+      },
+      {
+        "sharedKey": "site-footer",
+        "regionId": "site-footer",
+        "sourceRef": "components/site/shell/SiteFooter.jsx",
+        "consumption": "required"
+      }
+    ],
+    "routeEvidence": {
+      "sourceFiles": [
+        {
+          "path": "components/site/shell/SiteHeader.jsx",
+          "structuralHash": "sha256:4908bce66a454c011c7c4c8e89e8dffd0e1c14eb0fa322823a324265006d1122"
+        },
+        {
+          "path": "components/site/shell/SiteMobileMenu.jsx",
+          "structuralHash": "sha256:bc2e930f44b38a2b4afc96b6c12b76ba497a8faf4958b8a2f2d4c3e12dc9cb5e"
+        },
+        {
+          "path": "components/site/shell/InteriorHero.jsx",
+          "structuralHash": "sha256:22a1a5b3486ffd19765415be5fb681d938ce484876b8677c5598e6a2a5db429b"
+        },
+        {
+          "path": "app/(pages)/(interior)/services/content.js",
+          "structuralHash": "sha256:95ecc97fd99b825b2ec96f8514b2010e666866914f785f00225af6f2f6df1e1e"
+        },
+        {
+          "path": "app/(pages)/(interior)/services/page.jsx",
+          "structuralHash": "sha256:a49543d9ca5938aa351c3d06893ab33a3bbc837aa24f0487456c8c476b37f0e3"
+        },
+        {
+          "path": "components/site/shell/QuoteCta.jsx",
+          "structuralHash": "sha256:40500f36823e954f8b1bda6b9dde7ac5806f2d59a1c5a53c949c8c13655e9e92"
+        },
+        {
+          "path": "components/site/shell/SiteFooter.jsx",
+          "structuralHash": "sha256:83b3702819bdb0899b12ae64aac7f50f420b5c1a9fa05da94302a8e54f9d7048"
+        }
+      ],
+      "regionHooks": [
+        "site-navigation",
+        "hero",
+        "catalogue",
+        "quote",
+        "site-footer"
+      ],
+      "renderReview": {
+        "status": "current",
+        "wide": "local-evidence:wireframes/services/revision-2/wide",
+        "compact": "local-evidence:wireframes/services/revision-2/compact",
+        "reviewedRevision": 3,
+        "reviewedAt": "2026-11-10T20:10:29.901Z"
+      },
+      "manualClassification": {
+        "reviewer": "Codex",
+        "recordedAt": "2026-11-10T19:40:15.057Z",
+        "rationale": "Primary hooks are static. Navigation, lists and photos repeat inside their regions. Drawer state changes only the transient mobile navigation."
+      }
+    },
+    "unresolved": [],
+    "decisionLog": [
+      {
+        "decision": "Use one site shell and direct navigation across the existing public pages.",
+        "source": "project-chat:extend-approved-home-design-to-existing-pages",
+        "rationale": "The home route provides an overview. About, Services, and Contact have their own content, route, and calls to action.",
+        "recordedAt": "2026-11-10T19:40:15.057Z"
+      }
+    ]
+  }
+}

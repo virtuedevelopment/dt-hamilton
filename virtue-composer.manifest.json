@@ -1,0 +1,248 @@
+{
+  "contractVersion": 1,
+  "composerVersion": "0.10.0",
+  "cliVersion": "0.10.0",
+  "installationMode": "selected",
+  "template": "next-jsx",
+  "components": [
+    "section",
+    "button",
+    "button-link",
+    "drawer",
+    "accordion",
+    "inline-message"
+  ],
+  "compositions": [],
+  "blueprints": [],
+  "flows": [],
+  "flowArtifacts": {},
+  "flowCapabilities": {},
+  "flowIntegrations": {},
+  "designPipeline": {
+    "contractVersion": 1,
+    "entry": {
+      "mode": "established",
+      "detectedAt": "2026-11-10T18:35:15.570Z",
+      "sources": [
+        {
+          "type": "project-instruction",
+          "ref": "entry:established"
+        }
+      ]
+    },
+    "policy": {
+      "wireframeApproval": {
+        "default": "unresolved",
+        "source": "project-chat",
+        "recordedAt": "2026-11-10T19:40:15.064Z",
+        "routeOverrides": {
+          "home": "approval-required",
+          "about": "approval-required",
+          "services": "approval-required",
+          "contact": "approval-required"
+        }
+      }
+    },
+    "projectStages": {
+      "intake": {
+        "status": "complete"
+      },
+      "project-truth": {
+        "status": "ready",
+        "artifact": "project-truth",
+        "revision": 4
+      },
+      "references": {
+        "status": "ready",
+        "artifact": "design-moves",
+        "revision": 10
+      },
+      "retrospective": {
+        "status": "not-started"
+      }
+    },
+    "currentStage": "wireframe",
+    "artifacts": {
+      "project-truth": {
+        "kind": "project-truth",
+        "path": ".virtue-composer/project/project-truth.json",
+        "revision": 4,
+        "hash": "sha256:56c77c6eb813ac3bb72e73bb7a73eadc0a94cb55d2873d219415a726f9612ab4",
+        "storage": "project-record",
+        "ownership": {
+          "owner": "project",
+          "managed": false,
+          "protected": true
+        }
+      },
+      "design-moves": {
+        "kind": "design-moves",
+        "path": ".virtue-composer/project/design-moves.json",
+        "revision": 10,
+        "hash": "sha256:8875b7e37c097da6a04cebb8fbedee3fee037758bb093d423a7972e45ed56c54",
+        "storage": "project-record",
+        "ownership": {
+          "owner": "project",
+          "managed": false,
+          "protected": true
+        }
+      },
+      "wireframe:home": {
+        "kind": "wireframe",
+        "path": ".virtue-composer/project/routes/home/wireframe.json",
+        "revision": 15,
+        "hash": "sha256:b1c7c1dcef5c617d9b68f78f438add8a6b44b28ebac61ea98b1b68f042646c58",
+        "storage": "project-record",
+        "ownership": {
+          "owner": "project",
+          "managed": false,
+          "protected": true
+        }
+      },
+      "wireframe:about": {
+        "kind": "wireframe",
+        "path": ".virtue-composer/project/routes/about/wireframe.json",
+        "revision": 3,
+        "hash": "sha256:e52671a07c6e4c09953da890bbee0428e72ac6aae2dd8b004274187b372f5a55",
+        "storage": "project-record",
+        "ownership": {
+          "owner": "project",
+          "managed": false,
+          "protected": true
+        }
+      },
+      "wireframe:services": {
+        "kind": "wireframe",
+        "path": ".virtue-composer/project/routes/services/wireframe.json",
+        "revision": 3,
+        "hash": "sha256:df5ad5602622180c5c32cbd1101afc3b22273c6a2f7fe4cfe43b3202f674d004",
+        "storage": "project-record",
+        "ownership": {
+          "owner": "project",
+          "managed": false,
+          "protected": true
+        }
+      },
+      "wireframe:contact": {
+        "kind": "wireframe",
+        "path": ".virtue-composer/project/routes/contact/wireframe.json",
+        "revision": 3,
+        "hash": "sha256:c44819746abf08e4c5d0bee2cf756063e958a9e4375cf742b47add1293ba2743",
+        "storage": "project-record",
+        "ownership": {
+          "owner": "project",
+          "managed": false,
+          "protected": true
+        }
+      }
+    },
+    "routes": {
+      "home": {
+        "path": "/",
+        "currentStage": "wireframe",
+        "stages": {
+          "wireframe": {
+            "status": "ready",
+            "artifact": "wireframe:home",
+            "revision": 15,
+            "impact": "structure"
+          },
+          "direction": {
+            "status": "not-started"
+          },
+          "implementation": {
+            "status": "not-started"
+          },
+          "review": {
+            "status": "not-started"
+          },
+          "approval": {
+            "status": "not-started"
+          },
+          "validation": {
+            "status": "not-started"
+          }
+        }
+      },
+      "about": {
+        "path": "/about",
+        "currentStage": "wireframe",
+        "stages": {
+          "wireframe": {
+            "status": "ready",
+            "artifact": "wireframe:about",
+            "revision": 3
+          },
+          "direction": {
+            "status": "not-started"
+          },
+          "implementation": {
+            "status": "not-started"
+          },
+          "review": {
+            "status": "not-started"
+          },
+          "approval": {
+            "status": "not-started"
+          },
+          "validation": {
+            "status": "not-started"
+          }
+        }
+      },
+      "services": {
+        "path": "/services",
+        "currentStage": "wireframe",
+        "stages": {
+          "wireframe": {
+            "status": "ready",
+            "artifact": "wireframe:services",
+            "revision": 3
+          },
+          "direction": {
+            "status": "not-started"
+          },
+          "implementation": {
+            "status": "not-started"
+          },
+          "review": {
+            "status": "not-started"
+          },
+          "approval": {
+            "status": "not-started"
+          },
+          "validation": {
+            "status": "not-started"
+          }
+        }
+      },
+      "contact": {
+        "path": "/contact",
+        "currentStage": "wireframe",
+        "stages": {
+          "wireframe": {
+            "status": "ready",
+            "artifact": "wireframe:contact",
+            "revision": 3
+          },
+          "direction": {
+            "status": "not-started"
+          },
+          "implementation": {
+            "status": "not-started"
+          },
+          "review": {
+            "status": "not-started"
+          },
+          "approval": {
+            "status": "not-started"
+          },
+          "validation": {
+            "status": "not-started"
+          }
+        }
+      }
+    },
+    "migration": null
+  }
+}

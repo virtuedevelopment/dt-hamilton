@@ -1,0 +1,104 @@
+/* Homepage wireframe: placement and layout for copy and structure review. */
+.wireframe { position: relative; background: var(--paper); color: var(--ink); font-size: 1rem; line-height: 1.55; }
+.wireframe :is(h1, h2, h3, p) { margin: 0; }
+.wireframe :is(h1, h2, h3) { line-height: 1.04; letter-spacing: -.039em; }
+.wireframe h2 { font-size: clamp(2rem, 4vw, 3.65rem); }
+.wireframe h3 { font-size: 1.3rem; letter-spacing: -.022em; }
+.wireframe img { display: block; max-width: 100%; }
+.wireframe a { color: inherit; }
+.wireframe :is(a, button):focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.wireframe :is(section, li)[id] { scroll-margin-top: 1.25rem; }
+.section { padding-block: clamp(3rem, 6vw, 6rem); }
+.actions { display: flex; flex-wrap: wrap; gap: .65rem; }
+.hero { position: relative; isolation: isolate; overflow: clip; min-height: clamp(38rem, 55vw, 48rem); background: var(--ink); color: white; display: grid; align-items: center; }
+.heroPhoto { position: absolute; z-index: -2; inset: 0 0 0 auto !important; width: 81% !important; height: 100%; object-fit: cover; object-position: center 48%; mask-image: linear-gradient(90deg, transparent, black 20%); }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #171717 0%, #171717eb 25%, #171717b8 53%, #17171770 72%, #17171718 100%); }
+.heroContent { padding-block: 8.5rem 5.5rem; }
+.hero h1 { max-width: 14ch; font-weight: 700; font-size: clamp(3.1rem, 5.8vw, 5.75rem); line-height: 1.04; letter-spacing: -.05em; }
+.hero p { max-width: 42ch; margin-block: 1.25rem 1.6rem; font-size: clamp(1rem, 1.6vw, 1.2rem); color: white; }
+.serviceRibbon {
+  /* The ends of the angled ribbon travel farther on wider screens. */
+  --ribbon-bleed: max(1.5rem, calc(1.65vw + 2px));
+  position: relative;
+  z-index: 1;
+  overflow: clip;
+  margin-top: calc(-2 * var(--ribbon-bleed));
+  padding-block: var(--ribbon-bleed);
+}
+.ribbonInner { margin-inline: -1.5%; padding: .8rem max(4%, 1.5rem); background: var(--red); color: white; transform: rotate(-1.8deg); display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: .4rem 1.3rem; }
+.ribbonInner a { min-height: 44px; display: inline-flex; align-items: center; gap: .48rem; font-size: .95rem; font-weight: 700; text-decoration: none; }
+.ribbonInner a:hover { text-decoration: underline; text-underline-offset: .2rem; }
+.ribbonInner span { font-size: 1.12rem; }
+.about { padding-block: clamp(3.6rem, 8vw, 7rem) 2rem; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,3fr) minmax(0,1fr); grid-template-areas: "left copy right"; gap: clamp(1rem, 3vw, 3rem); align-items: center; }
+.about img { width: 100%; aspect-ratio: .95; height: auto; object-fit: cover; }
+.aboutLeft { grid-area: left; transform: translateY(1.5rem); object-position: 35% 50%; }
+.aboutRight { grid-area: right; transform: translateY(-1.5rem); }
+.aboutCopy { grid-area: copy; text-align: center; }
+.aboutCopy p { color: var(--muted); max-width: 47ch; margin: 1rem auto 0; }
+.sectionHead { display: grid; grid-template-columns: 1fr .85fr; gap: 2rem; align-items: end; margin-bottom: 1.45rem; }
+.sectionHead p, .faq p { color: var(--muted); max-width: 48ch; }
+.workGrid { list-style: none; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+.workGrid .workTile { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: end; aspect-ratio: 1.44; color: white; text-decoration: none; }
+.workGrid .workTile:focus-visible { outline-color: var(--blue); }
+.workTile img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.workTile::after { position: absolute; inset: 0; z-index: -1; content: ""; background: linear-gradient(0deg, #141414f5 0%, #141414c9 22%, #14141400 62%); }
+.workTile:is(:hover, :focus-visible) img { transform: scale(1.045); }
+.workTile span { width: 100%; display: flex; justify-content: space-between; gap: .5rem; align-items: end; padding: clamp(.75rem, 2vw, 1.6rem); font-weight: 700; line-height: 1.15; font-size: clamp(1.05rem, 2.6vw, 1.85rem); letter-spacing: -.025em; }
+.workTile b { font-size: .8em; }
+.services { background: var(--blue); color: white; }
+.services h2 { max-width: 17ch; margin: 0 auto 1.9rem; text-align: center; }
+.serviceGrid { list-style: none; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .8rem; }
+.serviceGrid li { color: var(--ink); background: var(--paper); border: 1px solid #ffffff80; padding: clamp(1rem, 2.5vw, 1.7rem); }
+.serviceGrid li::before { content: ""; display: block; height: 3px; width: 1.6rem; background: var(--red); margin-bottom: 1rem; }
+.serviceGrid li:target { outline: 3px solid white; outline-offset: 4px; }
+.serviceGrid p { margin-top: .65rem; color: var(--muted); }
+.faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(1rem, 5vw, 4rem); }
+.faq h2 { margin-bottom: .7rem; }
+.questions { border-top: 1px solid var(--line); }
+.questions :global([data-vc-accordion-item]) { border-bottom: 1px solid var(--line); }
+.questions :global([data-vc-accordion-trigger]) { width: 100%; display: flex; min-height: 52px; justify-content: space-between; gap: 1rem; align-items: center; font: inherit; font-size: 1rem; font-weight: 700; cursor: pointer; padding: .7rem 0; border: 0; background: none; color: inherit; text-align: start; }
+.questions :global([data-vc-accordion-indicator]) { color: var(--blue); font-size: 1.3rem; }
+.questions :global([data-vc-accordion-content]) { padding-bottom: 1rem; color: var(--muted); }
+.quote { display: grid; grid-template-columns: minmax(0,2fr) minmax(0,1fr); gap: .75rem; margin-bottom: clamp(3rem, 6vw, 5rem); color: white; }
+.quoteMain, .quotePhone { padding: clamp(1.5rem, 4vw, 3rem); display: grid; gap: .75rem; align-content: center; justify-items: start; }
+.quoteMain { position: relative; isolation: isolate; background: var(--blue); }
+.quoteMain::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #162e77 0%, #162e77e8 58%, #162e77b8 100%); }
+.quotePhoto { object-fit: cover; z-index: -2; }
+.quoteMain p { max-width: 30ch; }
+.quotePhone { background: var(--red); }
+.quotePhone h3 { font-size: clamp(1.6rem, 3vw, 2.25rem); }
+.wireframe section[tabindex="-1"]:focus:not(:focus-visible), .wireframe:focus { outline: none; }
+@media (max-width: 760px) {
+  .hero { min-height: 37rem; }
+  .heroContent { padding-block: 7.5rem 4.5rem; }
+  .heroPhoto { width: 100% !important; object-position: 52% center; mask-image: none; }
+  .hero::after { background: linear-gradient(90deg, #111e, #111b 75%), linear-gradient(180deg, #111b, transparent 55%, #1119); }
+  .about { grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-areas: "copy copy" "left right"; }
+  .about img { aspect-ratio: 1.4; transform: none; }
+  .sectionHead, .faq { grid-template-columns: 1fr; gap: .85rem; }
+  .serviceGrid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 475px) {
+  .hero h1 { font-size: clamp(2.75rem, 10vw, 3.6rem); }
+  .ribbonInner { column-gap: .9rem; }
+  .ribbonInner a { font-size: .85rem; }
+  .workTile { aspect-ratio: 1.02; }
+  .serviceGrid { grid-template-columns: minmax(0, 1fr); }
+  .quote { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .heroContent h1 { animation: textArrival 600ms cubic-bezier(.22,.61,.36,1) both; }
+  .heroContent p { animation: textArrival 600ms 80ms cubic-bezier(.22,.61,.36,1) both; }
+  .heroContent .actions { animation: textArrival 600ms 150ms cubic-bezier(.22,.61,.36,1) both; }
+  .heroPhoto { animation: photoSettle 900ms ease-out both; }
+  .wireframe [data-home-reveal="visible"] { animation: sectionArrival 450ms cubic-bezier(.22,.61,.36,1); }
+  @keyframes textArrival { from { translate: 0 16px; } to { translate: 0 0; } }
+  @keyframes photoSettle { from { scale: 1.035; } to { scale: 1; } }
+  @keyframes sectionArrival { from { translate: 0 12px; } to { translate: 0 0; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workTile img { transition: none; }
+  .workTile:is(:hover, :focus-visible) img { transform: none; }
+}

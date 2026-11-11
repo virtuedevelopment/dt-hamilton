@@ -1,0 +1,1357 @@
+{
+  "contractVersion": 1,
+  "artifactId": "wireframe:home",
+  "kind": "wireframe",
+  "scope": {
+    "type": "route",
+    "routeId": "home",
+    "path": "/"
+  },
+  "status": "ready",
+  "revision": 15,
+  "createdAt": "2026-11-10T18:45:20.162Z",
+  "updatedAt": "2026-11-10T19:40:40.716Z",
+  "dependencies": [
+    {
+      "artifactId": "project-truth",
+      "revision": 4,
+      "hash": "sha256:56c77c6eb813ac3bb72e73bb7a73eadc0a94cb55d2873d219415a726f9612ab4"
+    },
+    {
+      "artifactId": "design-moves",
+      "revision": 10,
+      "hash": "sha256:8875b7e37c097da6a04cebb8fbedee3fee037758bb093d423a7972e45ed56c54"
+    }
+  ],
+  "sourceRefs": [
+    {
+      "type": "project-route",
+      "ref": "/"
+    }
+  ],
+  "ownership": {
+    "owner": "project",
+    "managed": false,
+    "protected": true
+  },
+  "content": {
+    "contractVersion": 1,
+    "route": {
+      "routeId": "home",
+      "path": "/",
+      "purpose": "Help Ottawa-area visitors identify the right HVAC service and start a quote request.",
+      "primaryAudience": "Homeowners, businesses, and construction teams looking for Ottawa-area HVAC services.",
+      "primaryAction": "Open the quote form on the Contact page.",
+      "entryConditions": [
+        "Direct arrival or navigation from an existing public route"
+      ],
+      "exitDestinations": [
+        "/about",
+        "/services",
+        "/contact"
+      ]
+    },
+    "narrative": {
+      "thesis": "Start with the Ottawa HVAC offer, guide visitors into service details through photography and shortcuts, then answer questions and make it easy to enquire.",
+      "jobs": [
+        {
+          "id": "orient",
+          "purpose": "Explain the business and offer immediate navigation.",
+          "regionIds": [
+            "site-navigation",
+            "hero",
+            "service-shortcuts"
+          ]
+        },
+        {
+          "id": "evaluate",
+          "purpose": "Explain customer fit and available services with text and photo examples.",
+          "regionIds": [
+            "about",
+            "work",
+            "services"
+          ]
+        },
+        {
+          "id": "enquire",
+          "purpose": "Answer questions and support quote and contact paths.",
+          "regionIds": [
+            "faq",
+            "quote",
+            "site-footer"
+          ]
+        }
+      ]
+    },
+    "regions": [
+      {
+        "id": "site-navigation",
+        "order": 1,
+        "role": "site-header",
+        "semantic": "header",
+        "purpose": "Show the common brand and direct links to Home, About, Services, and Contact.",
+        "sharedKey": "site-navigation",
+        "behaviorIds": [
+          "navigate-home",
+          "call",
+          "mobile-drawer"
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "components/site/shell/content.js"
+          },
+          {
+            "id": "navigation",
+            "kind": "navigation",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "components/site/shell/content.js"
+          },
+          {
+            "id": "action",
+            "kind": "action",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "components/site/shell/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "site-header",
+          "purpose": "Show the common brand and direct links to Home, About, Services, and Contact.",
+          "contentKinds": [
+            "text",
+            "navigation",
+            "action"
+          ],
+          "behaviors": [
+            "Navigate to existing public routes.",
+            "Open a side drawer at phone widths and dismiss by close, backdrop, Escape, or navigation."
+          ],
+          "states": [
+            "default",
+            "focused",
+            "compact closed",
+            "compact open",
+            "compact exiting"
+          ],
+          "accessibility": [
+            "Indicate the current page and preserve focus handling on drawer dismissal."
+          ],
+          "responsive": [
+            "Show the brand and hamburger in one row at phone widths."
+          ],
+          "constraints": {
+            "clientAllowed": true,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section",
+            "button",
+            "drawer"
+          ],
+          "rationale": "Reuse the shared branded header and Composer Drawer on every public page.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "site-header-standard",
+              "outcome": "rejected",
+              "reason": "The approved overlay and compact layout can use static links and no new menu state."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "public-header-overlay",
+          "disposition": "adapt",
+          "rationale": "Reuse the shared branded header and Composer Drawer on every public page.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "site-header-standard",
+              "outcome": "rejected",
+              "reason": "The approved overlay and compact layout can use static links and no new menu state."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "components/site/shell/SiteHeader.jsx",
+            "regionHook": "site-navigation"
+          },
+          {
+            "path": "components/site/shell/SiteMobileMenu.jsx",
+            "regionHook": "site-navigation"
+          }
+        ]
+      },
+      {
+        "id": "hero",
+        "order": 2,
+        "role": "introduction",
+        "semantic": "section",
+        "purpose": "Show the Ottawa HVAC offer over an equipment service photo and provide quote and services actions.",
+        "sharedKey": null,
+        "behaviorIds": [
+          "request-quote",
+          "browse-services"
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "image",
+            "kind": "image",
+            "criticality": "structural",
+            "state": "representative",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "action",
+            "kind": "action",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "introduction",
+          "purpose": "Show the Ottawa HVAC offer over an equipment service photo and provide quote and services actions.",
+          "contentKinds": [
+            "text",
+            "image",
+            "action"
+          ],
+          "behaviors": [
+            "Navigate to the quote panel on the same page",
+            "Navigate to the service grid"
+          ],
+          "states": [
+            "default",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Keep the headline and actions above the next service link region."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section",
+            "button-link"
+          ],
+          "rationale": "Pair the existing brand offer with a single photo and two clear destinations.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "hero-split-media",
+              "outcome": "rejected",
+              "reason": "The selected reference calls for overlaid copy on a full-width photo."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "photo-led-hero",
+          "disposition": "adapt",
+          "rationale": "Pair the existing brand offer with a single photo and two clear destinations.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "hero-split-media",
+              "outcome": "rejected",
+              "reason": "The selected reference calls for overlaid copy on a full-width photo."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(home)/page.jsx",
+            "regionHook": "hero"
+          },
+          {
+            "path": "app/(pages)/(home)/content.js",
+            "regionHook": "hero"
+          }
+        ]
+      },
+      {
+        "id": "service-shortcuts",
+        "order": 3,
+        "role": "navigation",
+        "semantic": "nav",
+        "purpose": "Connect visible HVAC categories directly to the service cards.",
+        "sharedKey": null,
+        "behaviorIds": [
+          "jump-service"
+        ],
+        "contentSlots": [
+          {
+            "id": "navigation",
+            "kind": "navigation",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "navigation",
+          "purpose": "Connect visible HVAC categories directly to the service cards.",
+          "contentKinds": [
+            "navigation"
+          ],
+          "behaviors": [
+            "Navigate to the corresponding named service card"
+          ],
+          "states": [
+            "default",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Wrap the links onto additional lines in the same order."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section"
+          ],
+          "rationale": "Use static internal links for five categories with no carousel or motion dependency.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "anchor-nav",
+              "outcome": "rejected",
+              "reason": "Five ordinary anchors are sufficient and need no active scroll state."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "service-ribbon",
+          "disposition": "adapt",
+          "rationale": "Use static internal links for five categories with no carousel or motion dependency.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "anchor-nav",
+              "outcome": "rejected",
+              "reason": "Five ordinary anchors are sufficient and need no active scroll state."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(home)/page.jsx",
+            "regionHook": "service-shortcuts"
+          }
+        ]
+      },
+      {
+        "id": "about",
+        "order": 4,
+        "role": "content",
+        "semantic": "section",
+        "purpose": "Introduce who DT Hamilton serves with two supporting HVAC images.",
+        "sharedKey": null,
+        "behaviorIds": [],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "image",
+            "kind": "image",
+            "criticality": "structural",
+            "state": "representative",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "content",
+          "purpose": "Introduce who DT Hamilton serves with two supporting HVAC images.",
+          "contentKinds": [
+            "text",
+            "image"
+          ],
+          "behaviors": [],
+          "states": [
+            "default",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Read the intro first and place the two supporting images below it."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section"
+          ],
+          "rationale": "Keep supporting media and a short company introduction together.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "content-media-split",
+              "outcome": "rejected",
+              "reason": "The approved center column has supporting photos on both sides."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "centered-company-introduction",
+          "disposition": "adapt",
+          "rationale": "Keep supporting media and a short company introduction together.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "content-media-split",
+              "outcome": "rejected",
+              "reason": "The approved center column has supporting photos on both sides."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(home)/page.jsx",
+            "regionHook": "about"
+          }
+        ]
+      },
+      {
+        "id": "work",
+        "order": 5,
+        "role": "content",
+        "semantic": "section",
+        "purpose": "Illustrate four kinds of HVAC work and link each tile to service details.",
+        "sharedKey": null,
+        "behaviorIds": [
+          "jump-service"
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "image",
+            "kind": "image",
+            "criticality": "structural",
+            "state": "representative",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "navigation",
+            "kind": "navigation",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "content",
+          "purpose": "Illustrate four kinds of HVAC work and link each tile to service details.",
+          "contentKinds": [
+            "text",
+            "image",
+            "navigation"
+          ],
+          "behaviors": [
+            "Navigate to the corresponding named service card"
+          ],
+          "states": [
+            "default",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Keep a compact two-column tile grid and wrap labels inside each tile."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section"
+          ],
+          "rationale": "Use labelled anchor tiles with representative photos and actual service destinations.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "portfolio-case-grid",
+              "outcome": "rejected",
+              "reason": "There are no verified client case studies to present."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "service-category-photo-grid",
+          "disposition": "adapt",
+          "rationale": "Use labelled anchor tiles with representative photos and actual service destinations.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "portfolio-case-grid",
+              "outcome": "rejected",
+              "reason": "There are no verified client case studies to present."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(home)/page.jsx",
+            "regionHook": "work"
+          }
+        ]
+      },
+      {
+        "id": "services",
+        "order": 6,
+        "role": "content",
+        "semantic": "section",
+        "purpose": "Describe six current services in a scan-friendly grid.",
+        "sharedKey": null,
+        "behaviorIds": [],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "data",
+            "kind": "data",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "content",
+          "purpose": "Describe six current services in a scan-friendly grid.",
+          "contentKinds": [
+            "text",
+            "data"
+          ],
+          "behaviors": [],
+          "states": [
+            "default",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Reflow three columns to two without changing reading order."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section"
+          ],
+          "rationale": "Use a semantic list with a heading per service; each card is a link target.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "services-icon-grid",
+              "outcome": "rejected",
+              "reason": "The cards need text and targets; icons and per-card actions would repeat the shortcut band."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "plain-service-grid",
+          "disposition": "adapt",
+          "rationale": "Use a semantic list with a heading per service; each card is a link target.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "services-icon-grid",
+              "outcome": "rejected",
+              "reason": "The cards need text and targets; icons and per-card actions would repeat the shortcut band."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(home)/page.jsx",
+            "regionHook": "services"
+          }
+        ]
+      },
+      {
+        "id": "faq",
+        "order": 7,
+        "role": "content",
+        "semantic": "section",
+        "purpose": "Answer common questions in a short keyboard-accessible accordion.",
+        "sharedKey": null,
+        "behaviorIds": [
+          "expand-answer"
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "data",
+            "kind": "data",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "content",
+          "purpose": "Answer common questions in a short keyboard-accessible accordion.",
+          "contentKinds": [
+            "text",
+            "data"
+          ],
+          "behaviors": [
+            "Expand its answer and close any open item"
+          ],
+          "states": [
+            "collapsed",
+            "expanded",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Move the title above the same accordion, preserving trigger order."
+          ],
+          "constraints": {
+            "clientAllowed": true,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section",
+            "accordion"
+          ],
+          "rationale": "Reuse Composer Accordion and keep the prompt beside it at wide widths.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "faq-stacked-list",
+              "outcome": "rejected",
+              "reason": "An always-visible answer list makes the narrow page longer and harder to scan."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "faq-heading-and-accordion",
+          "disposition": "adapt",
+          "rationale": "Reuse Composer Accordion and keep the prompt beside it at wide widths.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "faq-stacked-list",
+              "outcome": "rejected",
+              "reason": "An always-visible answer list makes the narrow page longer and harder to scan."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(home)/page.jsx",
+            "regionHook": "faq"
+          }
+        ]
+      },
+      {
+        "id": "quote",
+        "order": 8,
+        "role": "action",
+        "semantic": "section",
+        "purpose": "Present a quote form link and a separate phone path.",
+        "sharedKey": null,
+        "behaviorIds": [
+          "open-quote-form",
+          "call"
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "image",
+            "kind": "image",
+            "criticality": "structural",
+            "state": "representative",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          },
+          {
+            "id": "action",
+            "kind": "action",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "app/(pages)/(home)/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "action",
+          "purpose": "Present a quote form link and a separate phone path.",
+          "contentKinds": [
+            "text",
+            "image",
+            "action"
+          ],
+          "behaviors": [
+            "Navigate to /contact",
+            "Offer the published phone number to the device dialer"
+          ],
+          "states": [
+            "default",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Show the request panel first, with the call panel immediately after it."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section",
+            "button-link"
+          ],
+          "rationale": "Keep the approved split panel while routing to the existing contact form and published phone.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "contact-form-split",
+              "outcome": "rejected",
+              "reason": "The existing form stays at /contact and the home panel acts as a clear entry point."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "split-quote-and-phone",
+          "disposition": "adapt",
+          "rationale": "Keep the approved split panel while routing to the existing contact form and published phone.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "contact-form-split",
+              "outcome": "rejected",
+              "reason": "The existing form stays at /contact and the home panel acts as a clear entry point."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "app/(pages)/(home)/page.jsx",
+            "regionHook": "quote"
+          }
+        ]
+      },
+      {
+        "id": "site-footer",
+        "order": 9,
+        "role": "site-footer",
+        "semantic": "footer",
+        "purpose": "Close the homepage with a brand link, route directory, and contact channels.",
+        "sharedKey": "site-footer",
+        "behaviorIds": [
+          "navigate-footer",
+          "call"
+        ],
+        "contentSlots": [
+          {
+            "id": "text",
+            "kind": "text",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "components/site/shell/content.js"
+          },
+          {
+            "id": "navigation",
+            "kind": "navigation",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "components/site/shell/content.js"
+          },
+          {
+            "id": "action",
+            "kind": "action",
+            "criticality": "structural",
+            "state": "confirmed",
+            "sourceRef": "components/site/shell/content.js"
+          }
+        ],
+        "selectionNeed": {
+          "role": "site-footer",
+          "purpose": "Close the homepage with a brand link, route directory, and contact channels.",
+          "contentKinds": [
+            "text",
+            "navigation",
+            "action"
+          ],
+          "behaviors": [
+            "Open the named page, section, or mail client",
+            "Offer the published phone number to the device dialer"
+          ],
+          "states": [
+            "default",
+            "focused"
+          ],
+          "accessibility": [
+            "Use named landmarks and preserve keyboard order."
+          ],
+          "responsive": [
+            "Put the brand above the navigation and contact columns."
+          ],
+          "constraints": {
+            "clientAllowed": false,
+            "minimumStability": "beta",
+            "maximumRuntimeComplexity": "moderate",
+            "preferInstalled": true,
+            "avoid": [
+              "Unsupported proof and unreviewed typography or visual direction."
+            ]
+          },
+          "context": [
+            "Approved DT Hamilton prototype",
+            "Homepage copy review"
+          ]
+        },
+        "implementationDecision": {
+          "class": "component-assisted-custom",
+          "selectedIds": [
+            "section"
+          ],
+          "rationale": "Provide existing route destinations and a compact contact group.",
+          "reasonCodes": [
+            "approved-structure",
+            "smallest-project-owned-region"
+          ],
+          "alternatives": [
+            {
+              "id": "site-footer-directory",
+              "outcome": "rejected",
+              "reason": "A smaller local footer fits the three simple groups in the approved concept."
+            }
+          ]
+        },
+        "compositionDecision": {
+          "source": "custom-project-region",
+          "id": "compact-footer-directory",
+          "disposition": "adapt",
+          "rationale": "Provide existing route destinations and a compact contact group.",
+          "avoidWhenReview": [],
+          "alternatives": [
+            {
+              "id": "site-footer-directory",
+              "outcome": "rejected",
+              "reason": "A smaller local footer fits the three simple groups in the approved concept."
+            }
+          ]
+        },
+        "sourceBindings": [
+          {
+            "path": "components/site/shell/SiteFooter.jsx",
+            "regionHook": "site-footer"
+          }
+        ]
+      }
+    ],
+    "responsive": {
+      "wide": {
+        "readingOrder": [
+          "site-navigation",
+          "hero",
+          "service-shortcuts",
+          "about",
+          "work",
+          "services",
+          "faq",
+          "quote",
+          "site-footer"
+        ],
+        "notes": [
+          "Header overlays the photo; the intro has flanking media, work tiles have two columns, service cards have three, and quote actions have two panels."
+        ]
+      },
+      "compact": {
+        "readingOrder": [
+          "site-navigation",
+          "hero",
+          "service-shortcuts",
+          "about",
+          "work",
+          "services",
+          "faq",
+          "quote",
+          "site-footer"
+        ],
+        "transformations": [
+          {
+            "regionId": "site-navigation",
+            "change": "Show the brand and hamburger. The drawer links to Home, About, Services, and Contact.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "hero",
+            "change": "Keep the headline and actions above the next service link region.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "service-shortcuts",
+            "change": "Wrap the links onto additional lines in the same order.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "about",
+            "change": "Read the intro first and place the two supporting images below it.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "work",
+            "change": "Keep a compact two-column tile grid and wrap labels inside each tile.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "services",
+            "change": "Reflow three columns to two without changing reading order.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "faq",
+            "change": "Move the title above the same accordion, preserving trigger order.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "quote",
+            "change": "Show the request panel first, with the call panel immediately after it.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          },
+          {
+            "regionId": "site-footer",
+            "change": "Put the brand above the navigation and contact columns.",
+            "rationale": "Preserve the approved content order and comfortable access at phone widths."
+          }
+        ]
+      }
+    },
+    "behaviors": [
+      {
+        "id": "navigate-home",
+        "regionId": "site-navigation",
+        "trigger": "Activate a header link",
+        "outcome": "Open the selected public route.",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Page navigation only",
+        "keyboard": "Tab to the link and press Enter."
+      },
+      {
+        "id": "request-quote",
+        "regionId": "hero",
+        "trigger": "Activate Get a quote",
+        "outcome": "Open the quote form on /contact.",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Page navigation only",
+        "keyboard": "Tab to the link and press Enter."
+      },
+      {
+        "id": "browse-services",
+        "regionId": "hero",
+        "trigger": "Activate See our services",
+        "outcome": "Open the full catalogue at /services.",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Page navigation only",
+        "keyboard": "Tab to the link and press Enter."
+      },
+      {
+        "id": "jump-service",
+        "regionId": "service-shortcuts",
+        "trigger": "Activate a shortcut or photo tile",
+        "outcome": "Navigate to the corresponding named service card",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "Page navigation only",
+        "keyboard": "Tab to the link and press Enter."
+      },
+      {
+        "id": "expand-answer",
+        "regionId": "faq",
+        "trigger": "Activate a question",
+        "outcome": "Expand its answer and close any open item",
+        "stateOwner": "component",
+        "persistence": "none",
+        "trustBoundary": "Composer Accordion holds local state",
+        "keyboard": "Enter or Space toggles; arrow keys navigate question triggers."
+      },
+      {
+        "id": "open-quote-form",
+        "regionId": "quote",
+        "trigger": "Activate Open the quote form",
+        "outcome": "Navigate to /contact",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "The contact route owns existing form submission",
+        "keyboard": "Tab to the link and press Enter."
+      },
+      {
+        "id": "call",
+        "regionId": "quote",
+        "trigger": "Activate a phone link",
+        "outcome": "Offer the published phone number to the device dialer",
+        "stateOwner": "none",
+        "persistence": "none",
+        "trustBoundary": "The device owns calling",
+        "keyboard": "Tab to the link and press Enter."
+      },
+      {
+        "id": "navigate-footer",
+        "regionId": "site-footer",
+        "trigger": "Activate a footer link",
+        "outcome": "Open the named page, section, or mail client",
+        "stateOwner": "none",
+        "persistence": "url",
+        "trustBoundary": "The destination owns any follow-on action",
+        "keyboard": "Tab to the link and press Enter."
+      },
+      {
+        "id": "mobile-drawer",
+        "regionId": "site-navigation",
+        "trigger": "Activate the hamburger at a compact viewport.",
+        "outcome": "Open the right-side drawer. Dismissal restores trigger focus. Selecting a page closes the drawer and navigates to that route.",
+        "stateOwner": "component",
+        "persistence": "none",
+        "keyboard": "Enter or Space opens, Tab stays within the drawer, Escape closes.",
+        "trustBoundary": "Local menu and page anchor state only.",
+        "states": [
+          "closed",
+          "open",
+          "closing"
+        ]
+      }
+    ],
+    "designMoveBindings": [
+      {
+        "moveId": "photo-led-opening",
+        "moveRevision": 4,
+        "target": {
+          "routeId": "home",
+          "region": "hero"
+        },
+        "disposition": "adapted",
+        "decision": "Use the same opening sequence in the homepage shell while keeping existing phone and quote destinations.",
+        "regionIds": [
+          "site-navigation",
+          "hero",
+          "service-shortcuts"
+        ]
+      },
+      {
+        "moveId": "service-discovery-sequence",
+        "moveRevision": 6,
+        "target": {
+          "routeId": "home",
+          "region": "work"
+        },
+        "disposition": "adapted",
+        "decision": "Present representative HVAC imagery and service categories without claims that the photos document completed client projects.",
+        "regionIds": [
+          "about",
+          "work",
+          "services"
+        ]
+      },
+      {
+        "moveId": "quote-and-recovery",
+        "moveRevision": 8,
+        "target": {
+          "routeId": "home",
+          "region": "quote"
+        },
+        "disposition": "adapted",
+        "decision": "Route the quote panel to the existing contact form and keep direct phone and email information available.",
+        "regionIds": [
+          "faq",
+          "quote",
+          "site-footer"
+        ]
+      }
+    ],
+    "sharedRegions": [
+      {
+        "sharedKey": "site-navigation",
+        "regionId": "site-navigation",
+        "sourceRef": "components/site/shell/SiteHeader.jsx",
+        "consumption": "required"
+      },
+      {
+        "sharedKey": "site-footer",
+        "regionId": "site-footer",
+        "sourceRef": "components/site/shell/SiteFooter.jsx",
+        "consumption": "required"
+      }
+    ],
+    "routeEvidence": {
+      "sourceFiles": [
+        {
+          "path": "components/site/shell/SiteHeader.jsx",
+          "structuralHash": "sha256:4908bce66a454c011c7c4c8e89e8dffd0e1c14eb0fa322823a324265006d1122"
+        },
+        {
+          "path": "components/site/shell/SiteMobileMenu.jsx",
+          "structuralHash": "sha256:bc2e930f44b38a2b4afc96b6c12b76ba497a8faf4958b8a2f2d4c3e12dc9cb5e"
+        },
+        {
+          "path": "app/(pages)/(home)/page.jsx",
+          "structuralHash": "sha256:83fdcf4bb8ca9567499a5054572511da3ce9019f816214e6c41cdaed9ec65196"
+        },
+        {
+          "path": "app/(pages)/(home)/content.js",
+          "structuralHash": "sha256:e6fada3e5b349759d93a1cbe6a56022235a83ccdd0d342b37fb16fea2380beb5"
+        },
+        {
+          "path": "components/site/shell/SiteFooter.jsx",
+          "structuralHash": "sha256:83b3702819bdb0899b12ae64aac7f50f420b5c1a9fa05da94302a8e54f9d7048"
+        }
+      ],
+      "regionHooks": [
+        "site-navigation",
+        "hero",
+        "service-shortcuts",
+        "about",
+        "work",
+        "services",
+        "faq",
+        "quote",
+        "site-footer"
+      ],
+      "renderReview": {
+        "status": "current",
+        "wide": "local-evidence:wireframes/home/revision-14/wide",
+        "compact": "local-evidence:wireframes/home/revision-14/compact",
+        "reviewedRevision": 15,
+        "reviewedAt": "2026-11-10T19:40:39.987Z"
+      },
+      "manualClassification": {
+        "reviewer": "Codex",
+        "recordedAt": "2026-11-10T19:40:15.057Z",
+        "rationale": "Primary hooks are static. Navigation, lists and photos repeat inside their regions. Drawer state changes only the transient mobile navigation."
+      }
+    },
+    "unresolved": [
+      {
+        "id": "copy-review",
+        "severity": "advisory",
+        "type": "content",
+        "summary": "Kaine to review the draft copy, service names, and section order before final visuals.",
+        "owner": "project-owner",
+        "resolution": null
+      },
+      {
+        "id": "photography",
+        "severity": "advisory",
+        "type": "content",
+        "summary": "Review the existing representative photography and confirm final assets before production.",
+        "owner": "project-owner",
+        "resolution": null
+      }
+    ],
+    "decisionLog": [
+      {
+        "decision": "Preserve shared navigation, footer, and quote handling. Use Composer sections, action links, and FAQ disclosure with neutral route CSS.",
+        "source": "project-chat:homepage-wireframe-before-visual-design",
+        "rationale": "Kaine requested a structure review before visual updates. The existing site and catalogue provide the content evidence for this first pass.",
+        "recordedAt": "2026-11-10T18:45:19.989Z"
+      },
+      {
+        "decision": "Adapt the owner-approved reference concept with a homepage-only shell and a link to the existing structured quote form.",
+        "source": "project-chat:approved-reference-led-home-concept",
+        "rationale": "The requested wireframe includes the full header and footer, separates copy into content.js, and remains subject to review before final visual work.",
+        "recordedAt": "2026-11-10T19:05:58.548Z"
+      },
+      {
+        "decision": "Add a mobile hamburger drawer, readable motion, and use Google Sans across the site.",
+        "source": "project-chat:mobile-navigation-motion-and-google-sans",
+        "rationale": "Adapt the drawer used by The Hill Media and the one-time section arrivals used by Eastern Peak and Artfl. Keep text visible during motion and honor reduced-motion preferences.",
+        "recordedAt": "2026-11-10T19:11:12.488Z"
+      },
+      {
+        "decision": "Use one site shell and direct navigation across the existing public pages.",
+        "source": "project-chat:extend-approved-home-design-to-existing-pages",
+        "rationale": "The home route provides an overview. About, Services, and Contact have their own content, route, and calls to action.",
+        "recordedAt": "2026-11-10T19:40:15.057Z"
+      }
+    ]
+  }
+}

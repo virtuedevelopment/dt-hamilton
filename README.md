@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DT Hamilton Mechanical
 
-## Getting Started
+The DT Hamilton Mechanical website uses the Next.js App Router, React, and Virtue Composer.
 
-First, run the development server:
+## Local development
 
-```bash
+Use Node.js 20.9 or newer.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000). Run `npm run check` for ESLint, strict Composer Doctor, and a production build. Google Sans is served from the font file in `app/fonts/`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project layout
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/(pages)/` contains public pages and their CSS modules.
+- `app/api/contact/route.js` handles quote submissions.
+- `components/site/` contains shared site components and their scoped styles.
+- `components/composer/` contains the local Composer wrappers. Import new Composer components through this directory.
+- `lib/config/` and `lib/seo/` hold shared site configuration and page metadata.
+- `styles/` contains the existing global stylesheet and Composer foundation CSS.
+- `public/` contains the images, logos, and other static assets.
 
-## Learn More
+Composer is installed with the Section and Button wrappers. Its config records file-specific exceptions for the existing layout, mobile navigation, and quote form. Remove each exception when the corresponding UI is migrated.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The contact endpoint uses `GMAIL_USER`, `GMAIL_PASS`, `FROM_EMAIL`, and `BUSINESS_EMAIL` from the server environment. Use a mock transport for local verification.

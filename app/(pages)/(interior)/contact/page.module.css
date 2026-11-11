@@ -1,0 +1,42 @@
+.layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: start; }
+.contactForm { min-width: 0; scroll-margin-top: 1.25rem; }
+.contactForm :global(.form) { align-items: start; margin-top: 1.5rem; padding: clamp(1rem, 3vw, 2rem); border: 1px solid var(--line); box-shadow: none; gap: 1.25rem; }
+.contactForm :global(.gridbox) { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
+.contactForm :global(.inputbox) { min-width: 0; gap: .375rem; }
+.contactForm :global(.inputbox) label { font-size: .92rem; font-weight: 600; }
+.contactForm :global(.inputbox) :is(input, select, textarea) {
+  width: 100%; min-height: 46px; border: 1px solid #777; border-radius: 0; padding: .55rem .7rem; color: var(--ink); background: white; font-size: 1rem;
+}
+.contactForm :global(.inputbox) textarea { resize: vertical; }
+.contactForm :global(.inputbox) :is(input, select, textarea):focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 2px;
+}
+.contactForm :global(.button-main) { min-height: 46px; border-radius: 0; background: var(--red); color: white; }
+.contactForm :global(.button-main):hover { background: #941d28; }
+.contactForm :global(.button-main):disabled { opacity: .65; cursor: wait; }
+.contactForm :global(.quote-feedback) { width: 100%; }
+.contactForm :global(.quote-feedback:has(> span:empty)) { position: absolute; }
+.contactForm :global(.quote-feedback[data-vc-tone="success"]) {
+  padding: .85rem;
+  border: 1px solid #1a682f;
+  color: #174a25;
+  background: #eaf5ec;
+}
+.contactForm :global(.quote-feedback[data-vc-tone="danger"]) {
+  padding: .85rem;
+  border: 1px solid var(--red);
+  color: #861825;
+  background: #fff1f1;
+}
+.direct { padding: clamp(1.5rem, 4vw, 2.5rem); background: var(--blue); color: white; }
+.direct h2 { font-size: clamp(1.85rem, 3.5vw, 2.8rem); line-height: 1.1; letter-spacing: -.035em; }
+.direct h3 { margin-top: 1.25rem; }
+.direct p { margin-top: .55rem; }
+.direct address { display: grid; justify-items: start; gap: .75rem; margin-top: 1rem; font-style: normal; overflow-wrap: anywhere; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 475px) {
+  .contactForm :global(.gridbox) { grid-template-columns: minmax(0, 1fr); }
+}

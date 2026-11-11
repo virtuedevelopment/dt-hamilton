@@ -1,26 +1,24 @@
-import { Poppins } from "next/font/google";
-import configurations from "@/_data/config";
-import Footer from "./components/footer/Footer";
-import Navbar from "./components/nav/Navbar";
-import "./globals.css";
+import localFont from "next/font/local";
+import configurations from "@/lib/config/site";
+import "@/styles/composer.css";
+import "@/styles/globals.css";
 
 export const metadata = {
   title: configurations.metadata.title,
   description: configurations.metadata.description,
 };
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const googleSans = localFont({
+  src: "./fonts/google-sans-latin.woff2",
+  weight: "400 700",
+  display: "swap",
 });
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <Navbar />
+      <body className={googleSans.className}>
         {children}
-        <Footer />
       </body>
     </html>
   );

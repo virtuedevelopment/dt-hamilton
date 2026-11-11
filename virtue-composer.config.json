@@ -1,0 +1,27 @@
+{
+  "contractVersion": 1,
+  "packageName": "@virtuecreation/composer",
+  "packageSource": "npm",
+  "language": "jsx",
+  "sourceRoot": ".",
+  "wrapperRoot": "components/composer",
+  "compositionRoot": "components/compositions",
+  "foundationCss": "styles/composer.css",
+  "importAlias": "@/components/composer",
+  "enforcement": {
+    "directPackageImports": "error",
+    "rawControls": "error",
+    "sectionVisualProps": "error",
+    "sectionSemantics": "warning",
+    "layoutDivs": "warning",
+    "componentSelection": "warning",
+    "trustBoundaries": "warning",
+    "sourceAnalysis": "warning",
+    "exceptions": {
+      "layoutDivs": [],
+      "rawControls": [
+        "components/site/contact/QuoteForm.jsx"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: clamp(22rem, 34vw, 31rem);
+  overflow: clip;
+  background: var(--ink);
+  color: white;
+}
+.heroImage {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 47%;
+}
+.hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #151515f8, #151515ca 49%, #15151550);
+  content: "";
+}
+.heroCopy { padding-block: clamp(3rem, 7vw, 6rem); }
+.heroCopy h1, .heading {
+  max-width: 16ch;
+  line-height: 1.04;
+  letter-spacing: -.04em;
+}
+.heroCopy h1 { font-size: clamp(3rem, 6vw, 5.25rem); }
+.heroCopy p { max-width: 45ch; margin-block: 1rem 1.35rem; font-size: clamp(1.08rem, 2vw, 1.25rem); }
+.section { padding-block: clamp(3rem, 6vw, 5.75rem); }
+.heading { font-size: clamp(2.25rem, 4.8vw, 3.8rem); }
+.lead { max-width: 58ch; color: var(--muted); margin-top: .85rem; }
+.split { display: grid; align-items: center; gap: clamp(1.75rem, 5vw, 4.5rem); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.photo { display: block; width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; }
+.band { background: var(--blue); color: white; }
+.band .lead { color: white; }
+.cardGrid { display: grid; list-style: none; gap: .9rem; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 1.65rem; }
+.cardGrid > li { min-width: 0; padding: clamp(1.1rem, 2vw, 1.55rem); background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+.cardGrid > li::before { display: block; width: 1.65rem; height: 3px; margin-bottom: .85rem; background: var(--red); content: ""; }
+.cardGrid h3 { font-size: 1.23rem; line-height: 1.2; }
+.cardGrid p { margin-top: .55rem; color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.25rem 2rem; padding: clamp(1.5rem, 4vw, 2.75rem); background: var(--ink); color: white; }
+.cta h2 { font-size: clamp(1.8rem, 3.5vw, 3.2rem); line-height: 1.09; letter-spacing: -.035em; }
+.cta p { max-width: 51ch; margin-top: .6rem; }
+.ctaActions { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+@media (max-width: 800px) {
+  .cardGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .hero { min-height: 20rem; }
+  .hero::after { background: linear-gradient(90deg, #151515f5, #151515bd); }
+  .split, .cardGrid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .heroCopy { animation: arrive 550ms ease-out both; }
+  @keyframes arrive { from { translate: 0 12px; } to { translate: 0 0; } }
+}

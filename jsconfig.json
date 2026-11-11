@@ -1,7 +1,16 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": [
+        "./*"
+      ],
+      "@/components/composer": [
+        "./components/composer/index.js"
+      ],
+      "@/components/composer/*": [
+        "./components/composer/*"
+      ]
+    },
+    "baseUrl": "."
   }
 }

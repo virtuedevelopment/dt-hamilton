@@ -1,0 +1,450 @@
+{
+  "contractVersion": 1,
+  "artifactId": "design-moves",
+  "kind": "design-moves",
+  "scope": {
+    "type": "project"
+  },
+  "status": "ready",
+  "revision": 10,
+  "createdAt": "2026-11-10T18:43:19.190Z",
+  "updatedAt": "2026-11-10T19:40:15.071Z",
+  "dependencies": [
+    {
+      "artifactId": "project-truth",
+      "revision": 4,
+      "hash": "sha256:56c77c6eb813ac3bb72e73bb7a73eadc0a94cb55d2873d219415a726f9612ab4"
+    }
+  ],
+  "sourceRefs": [
+    {
+      "type": "reference-source",
+      "ref": "project:approved-dt-hamilton-home-concept"
+    }
+  ],
+  "ownership": {
+    "owner": "project",
+    "managed": false,
+    "protected": true
+  },
+  "content": {
+    "contractVersion": 1,
+    "strategy": {
+      "mode": "project-evidence",
+      "rationale": "Use the approved DT Hamilton concept as the bounded structural reference; the supplied plumbing reference informed composition only."
+    },
+    "sources": [
+      {
+        "id": "approved-dt-hamilton-home-concept",
+        "kind": "project",
+        "title": "Approved DT Hamilton homepage concept",
+        "publisher": "DT Hamilton project",
+        "creator": "Virtue project concept",
+        "status": "ready-for-extraction",
+        "rights": "project-owned",
+        "reviewedAt": "2026-11-10T19:05:05.639Z"
+      }
+    ],
+    "moves": [
+      {
+        "id": "photo-led-opening",
+        "title": "Overlay navigation and direct service shortcuts",
+        "sourceId": "approved-dt-hamilton-home-concept",
+        "status": "selected",
+        "domains": [
+          "structure",
+          "hierarchy"
+        ],
+        "impact": "structure",
+        "observation": {
+          "summary": "An overlay header precedes a copy-and-action group over a full-width technician photo, followed by an angled row of service links.",
+          "page": {
+            "path": "/",
+            "region": "hero"
+          },
+          "mechanics": [
+            "Place the page promise and two actions together on a legible portion of the image.",
+            "Connect the next band directly to individual service cards."
+          ],
+          "facts": [
+            "Place the page promise and two actions together on a legible portion of the image.",
+            "Connect the next band directly to individual service cards."
+          ],
+          "inferences": [
+            "Use the same opening sequence in the homepage shell while keeping existing phone and quote destinations."
+          ],
+          "limitations": [
+            "Prototype evidence demonstrates layout and content order only."
+          ]
+        },
+        "evidenceRefs": [
+          {
+            "evidenceId": "approved-desktop",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:51.039Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "contentHash": "sha256:a051b162c1540b6230abf4f06e6e86bfe6076bdccb5e5cc1378a7b731c161df0",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          },
+          {
+            "evidenceId": "approved-mobile",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:52.042Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "contentHash": "sha256:c28f177b191491f0f097ee83b148fe8ebfcd58b27ecbaef575ebdf76464da45f",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          }
+        ],
+        "adaptation": {
+          "principle": "An overlay header precedes a copy-and-action group over a full-width technician photo, followed by an angled row of service links.",
+          "projectIntent": "Use the same opening sequence in the homepage shell while keeping existing phone and quote destinations.",
+          "preserve": [
+            "Published services and public contact details."
+          ],
+          "change": [
+            "Adapt the homepage structure to the approved review concept."
+          ],
+          "avoid": [
+            "Do not make unsupported project, review, or availability claims."
+          ],
+          "requirements": [
+            "Use editable route-local content and a single page heading."
+          ],
+          "accessibility": [
+            "Keep meaningful links and controls in reading order at both widths."
+          ],
+          "performance": [
+            "Use responsive images with dimensions and prioritise only the hero."
+          ]
+        },
+        "targets": [
+          {
+            "scope": "route",
+            "routeId": "home",
+            "region": "hero"
+          }
+        ],
+        "decision": {
+          "source": "project-chat",
+          "rationale": "Kaine approved this concept as the structural direction and explicitly requested the homepage wireframe match it.",
+          "moveRevision": 4,
+          "decidedAt": "2026-11-10T19:05:05.670Z"
+        }
+      },
+      {
+        "id": "service-discovery-sequence",
+        "title": "Intro, image-led categories, and service detail",
+        "sourceId": "approved-dt-hamilton-home-concept",
+        "status": "selected",
+        "domains": [
+          "structure",
+          "hierarchy"
+        ],
+        "impact": "structure",
+        "observation": {
+          "summary": "A centered introduction leads to four large photo tiles and then a six-card service grid.",
+          "page": {
+            "path": "/",
+            "region": "work"
+          },
+          "mechanics": [
+            "Make photo tiles link to service details.",
+            "Use the service grid to describe the actual work in short copy."
+          ],
+          "facts": [
+            "Make photo tiles link to service details.",
+            "Use the service grid to describe the actual work in short copy."
+          ],
+          "inferences": [
+            "Present representative HVAC imagery and service categories without claims that the photos document completed client projects."
+          ],
+          "limitations": [
+            "Prototype evidence demonstrates layout and content order only."
+          ]
+        },
+        "evidenceRefs": [
+          {
+            "evidenceId": "approved-desktop",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:51.039Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "contentHash": "sha256:a051b162c1540b6230abf4f06e6e86bfe6076bdccb5e5cc1378a7b731c161df0",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          },
+          {
+            "evidenceId": "approved-mobile",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:52.042Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "contentHash": "sha256:c28f177b191491f0f097ee83b148fe8ebfcd58b27ecbaef575ebdf76464da45f",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          }
+        ],
+        "adaptation": {
+          "principle": "A centered introduction leads to four large photo tiles and then a six-card service grid.",
+          "projectIntent": "Present representative HVAC imagery and service categories without claims that the photos document completed client projects.",
+          "preserve": [
+            "Published services and public contact details."
+          ],
+          "change": [
+            "Adapt the homepage structure to the approved review concept."
+          ],
+          "avoid": [
+            "Do not make unsupported project, review, or availability claims."
+          ],
+          "requirements": [
+            "Use editable route-local content and a single page heading."
+          ],
+          "accessibility": [
+            "Keep meaningful links and controls in reading order at both widths."
+          ],
+          "performance": [
+            "Use responsive images with dimensions and prioritise only the hero."
+          ]
+        },
+        "targets": [
+          {
+            "scope": "route",
+            "routeId": "home",
+            "region": "work"
+          }
+        ],
+        "decision": {
+          "source": "project-chat",
+          "rationale": "Kaine approved this concept as the structural direction and explicitly requested the homepage wireframe match it.",
+          "moveRevision": 6,
+          "decidedAt": "2026-11-10T19:05:05.761Z"
+        }
+      },
+      {
+        "id": "quote-and-recovery",
+        "title": "FAQ, two quote paths, and directory footer",
+        "sourceId": "approved-dt-hamilton-home-concept",
+        "status": "selected",
+        "domains": [
+          "structure",
+          "hierarchy"
+        ],
+        "impact": "structure",
+        "observation": {
+          "summary": "A compact FAQ sits above adjacent request and call panels, followed by a compact navigation and contact footer.",
+          "page": {
+            "path": "/",
+            "region": "quote"
+          },
+          "mechanics": [
+            "Keep the question controls together.",
+            "Offer a structured quote path and a distinct phone path."
+          ],
+          "facts": [
+            "Keep the question controls together.",
+            "Offer a structured quote path and a distinct phone path."
+          ],
+          "inferences": [
+            "Route the quote panel to the existing contact form and keep direct phone and email information available."
+          ],
+          "limitations": [
+            "Prototype evidence demonstrates layout and content order only."
+          ]
+        },
+        "evidenceRefs": [
+          {
+            "evidenceId": "approved-desktop",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:51.039Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "contentHash": "sha256:a051b162c1540b6230abf4f06e6e86bfe6076bdccb5e5cc1378a7b731c161df0",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          },
+          {
+            "evidenceId": "approved-mobile",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:52.042Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "contentHash": "sha256:c28f177b191491f0f097ee83b148fe8ebfcd58b27ecbaef575ebdf76464da45f",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          }
+        ],
+        "adaptation": {
+          "principle": "A compact FAQ sits above adjacent request and call panels, followed by a compact navigation and contact footer.",
+          "projectIntent": "Route the quote panel to the existing contact form and keep direct phone and email information available.",
+          "preserve": [
+            "Published services and public contact details."
+          ],
+          "change": [
+            "Adapt the homepage structure to the approved review concept."
+          ],
+          "avoid": [
+            "Do not make unsupported project, review, or availability claims."
+          ],
+          "requirements": [
+            "Use editable route-local content and a single page heading."
+          ],
+          "accessibility": [
+            "Keep meaningful links and controls in reading order at both widths."
+          ],
+          "performance": [
+            "Use responsive images with dimensions and prioritise only the hero."
+          ]
+        },
+        "targets": [
+          {
+            "scope": "route",
+            "routeId": "home",
+            "region": "quote"
+          }
+        ],
+        "decision": {
+          "source": "project-chat",
+          "rationale": "Kaine approved this concept as the structural direction and explicitly requested the homepage wireframe match it.",
+          "moveRevision": 8,
+          "decidedAt": "2026-11-10T19:05:05.773Z"
+        }
+      },
+      {
+        "id": "consistent-public-page-shell",
+        "title": "Extend the branded homepage shell to the public pages",
+        "sourceId": "approved-dt-hamilton-home-concept",
+        "status": "selected",
+        "domains": [
+          "structure",
+          "hierarchy"
+        ],
+        "impact": "structure",
+        "observation": {
+          "summary": "The approved homepage uses a brand and navigation row, a photo-led introduction, clear section hierarchy, and a compact directory footer.",
+          "page": {
+            "path": "/",
+            "region": "Site header, introduction, and footer"
+          },
+          "mechanics": [
+            "Present routes in one consistent header.",
+            "Separate the photo introduction from scannable page content.",
+            "End with a compact contact and links footer."
+          ],
+          "facts": [
+            "The prototype demonstrates a photo-led introduction and grouped footer at desktop and phone widths."
+          ],
+          "inferences": [
+            "Use these same layout patterns on About, Services, and Contact."
+          ],
+          "limitations": [
+            "The approved prototype concerns the homepage. Interior content and reading order are adapted to each route."
+          ]
+        },
+        "evidenceRefs": [
+          {
+            "evidenceId": "approved-desktop",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:51.039Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "contentHash": "sha256:a051b162c1540b6230abf4f06e6e86bfe6076bdccb5e5cc1378a7b731c161df0",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          },
+          {
+            "evidenceId": "approved-mobile",
+            "type": "screenshot",
+            "sourceUrl": "project:approved-dt-hamilton-home-concept",
+            "capturedAt": "2026-11-10T19:01:52.042Z",
+            "freshness": "current",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "contentHash": "sha256:c28f177b191491f0f097ee83b148fe8ebfcd58b27ecbaef575ebdf76464da45f",
+            "region": "Full homepage",
+            "method": "Rendered standalone DT Hamilton concept approved in chat"
+          }
+        ],
+        "adaptation": {
+          "principle": "Use one familiar shell with a purpose-built body on each public route.",
+          "projectIntent": "Keep existing pages discoverable with direct links and match the homepage layout and typography.",
+          "preserve": [
+            "Public URLs, service catalogue and existing form behavior."
+          ],
+          "change": [
+            "Use common header and footer and a shorter photo-led page introduction."
+          ],
+          "avoid": [
+            "Unsupported service, client work, or availability claims."
+          ],
+          "requirements": [
+            "Use descriptive page links, one page heading and route-local content."
+          ],
+          "accessibility": [
+            "Indicate the current page and provide keyboard access to mobile navigation."
+          ],
+          "performance": [
+            "Use existing local imagery and prioritize only the page hero."
+          ]
+        },
+        "targets": [
+          {
+            "scope": "route",
+            "routeId": "about",
+            "region": "site-navigation"
+          },
+          {
+            "scope": "route",
+            "routeId": "services",
+            "region": "site-navigation"
+          },
+          {
+            "scope": "route",
+            "routeId": "contact",
+            "region": "site-navigation"
+          }
+        ],
+        "decision": {
+          "source": "project-chat",
+          "rationale": "Kaine requested the same design across all existing pages and direct menu links to those pages.",
+          "moveRevision": 10,
+          "decidedAt": "2026-11-10T19:40:15.070Z"
+        }
+      }
+    ],
+    "bindings": []
+  }
+}

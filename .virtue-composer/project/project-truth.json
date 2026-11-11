@@ -1,0 +1,122 @@
+{
+  "contractVersion": 1,
+  "artifactId": "project-truth",
+  "kind": "project-truth",
+  "scope": {
+    "type": "project"
+  },
+  "status": "ready",
+  "revision": 4,
+  "createdAt": "2026-11-10T18:35:15.573Z",
+  "updatedAt": "2026-11-10T19:40:15.059Z",
+  "dependencies": [],
+  "sourceRefs": [
+    {
+      "type": "project-chat",
+      "ref": "homepage-wireframe-before-visual-design"
+    },
+    {
+      "type": "project-source",
+      "ref": "app/(pages)/(home)/page.jsx"
+    },
+    {
+      "type": "project-source",
+      "ref": "lib/config/site.js"
+    },
+    {
+      "type": "project-chat",
+      "ref": "approved-reference-led-home-concept"
+    },
+    {
+      "type": "project-chat",
+      "ref": "extend-approved-home-design-to-existing-pages"
+    }
+  ],
+  "ownership": {
+    "owner": "project",
+    "managed": false,
+    "protected": true
+  },
+  "content": {
+    "project": {
+      "id": null,
+      "name": "DT Hamilton Mechanical",
+      "profile": "service-business",
+      "archetype": null,
+      "summary": "Established Ottawa HVAC service website with residential, commercial, maintenance, and construction offerings and an existing quote request form."
+    },
+    "audience": [
+      "Ottawa-area homeowners looking for HVAC service",
+      "Commercial customers and construction teams evaluating HVAC services"
+    ],
+    "goals": [
+      "Show the Ottawa HVAC offer with relevant photography and direct service links",
+      "Route users to the existing quote form or business phone",
+      "Review the revised structure and copy before final visuals",
+      "Provide distinct About, Services, and Contact pages with a consistent site shell."
+    ],
+    "contentConditions": {
+      "available": [
+        "Existing homepage and FAQ",
+        "Service catalogue",
+        "Public contact details",
+        "Existing quote form and its destinations",
+        "Owner-approved homepage concept and draft structure"
+      ],
+      "missing": [
+        "Confirmed emergency availability and detailed service-area boundaries",
+        "Approved proof and photography for future visual direction"
+      ],
+      "media": "Representative photography from existing site assets; verify usage and any client photos before launch."
+    },
+    "preservation": {
+      "authority": "adapt",
+      "preserve": [
+        "Current public route URLs",
+        "Existing service catalogue and quote submission",
+        "Homepage visual language and shared navigation and footer",
+        "Review revised route structures before final visual acceptance"
+      ]
+    },
+    "constraints": {
+      "accessibilityTarget": "WCAG-AA",
+      "reducedMotion": true
+    },
+    "odyssey": null,
+    "unresolved": [
+      "Confirm the final FAQ set, coverage limits, and whether emergency availability should be published."
+    ],
+    "routes": [
+      {
+        "id": "home",
+        "path": "/",
+        "scope": "homepage wireframe"
+      },
+      {
+        "id": "about",
+        "path": "/about",
+        "scope": "Existing public page adapted to the homepage style"
+      },
+      {
+        "id": "services",
+        "path": "/services",
+        "scope": "Existing public page adapted to the homepage style"
+      },
+      {
+        "id": "contact",
+        "path": "/contact",
+        "scope": "Existing public page adapted to the homepage style"
+      }
+    ],
+    "visualIntent": {
+      "reference": "project:approved-dt-hamilton-home-concept",
+      "typography": "Google Sans",
+      "palette": [
+        "#b2212e",
+        "#2148b2"
+      ],
+      "controls": "Square controls and cards, with no recurring eyebrow labels or card counts.",
+      "status": "Concept selected; final direction and production typography pending revised wireframe review."
+    }
+  }
+}

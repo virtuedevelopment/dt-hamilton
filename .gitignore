@@ -34,3 +34,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Workspace-local agent files
+/AGENTS.md
+/skills/
+/.playwright-cli/
+/output/
+
+# BEGIN virtue-composer design storage
+.virtue-composer/*
+!.virtue-composer/project/
+!.virtue-composer/project/**
+# END virtue-composer design storage
