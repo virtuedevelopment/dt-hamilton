@@ -1,11 +1,10 @@
-import seo from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: seo.contact.title,
-  description: seo.contact.description,
-  keywords: seo.contact.keywords,
-  authors: [{ name: seo.contact.author }],
-};
+export const metadata = pageMetadata(
+  "/contact",
+  "Request an HVAC Quote in Ottawa | DT Hamilton Mechanical",
+  "Request a quote for HVAC installation, repair, or maintenance in Ottawa and the surrounding area. Call DT Hamilton Mechanical at 613-293-5790.",
+);
 
 export const contactContent = {
   hero: {
@@ -22,7 +21,8 @@ export const contactContent = {
       pending: "Sending your request…",
       success: "Your quote request was received. Our team will be in touch.",
       invalid: "Check your name, phone number, email address, and service, then try again.",
-      error: "We couldn’t send your request. Try again or call 613-293-5790.",
+      limited: "Too many requests. Please wait a few minutes or call 613-293-5790.",
+      error: "We couldn’t save your request. Try again or call 613-293-5790.",
     },
   },
   direct: {

@@ -1,15 +1,16 @@
-import nodemailer from "nodemailer";
+import { randomUUID } from "node:crypto";
+import { after } from "next/server";
 import configurations from "@/lib/config/site";
+import { notifyQuote } from "@/lib/quotes/notifications";
+import { reserveQuoteSlot, saveQuote } from "@/lib/quotes/storage";
 
+export const maxDuration = 60;
+
+const maxBodyBytes = 48 * 1024;
+const submissionId = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const fieldLimits = { name: 120, phone: 60, email: 254, service: 120, date: 10, message: 5000 };
 const serviceNames = new Set(configurations.services.map(({ service_name }) => service_name));
 const emailPattern = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-const htmlEntities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
-
-function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, (character) => htmlEntities[character]);
-}
-
 function readQuote(payload) {
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) return null;
 
@@ -32,67 +33,65 @@ function readQuote(payload) {
   return quote;
 }
 
+async function readPayload(request) {
+  const contentType = request.headers.get("content-type")?.split(";")[0].trim().toLowerCase();
+  if (contentType !== "application/json" || !request.body) return null;
+
+  const reader = request.body.getReader();
+  const decoder = new TextDecoder();
+  let size = 0;
+  let body = "";
+  try {
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) return JSON.parse(body + decoder.decode());
+      size += value.byteLength;
+      if (size > maxBodyBytes) {
+        await reader.cancel();
+        return null;
+      }
+      body += decoder.decode(value, { stream: true });
+    }
+  } catch {
+    return null;
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 export async function POST(request) {
-  const quote = readQuote(await request.json().catch(() => null));
-  if (!quote) {
+  if (request.headers.get("sec-fetch-site") === "cross-site") {
+    return Response.json({ error: "Invalid quote request." }, { status: 403 });
+  }
+
+  const payload = await readPayload(request);
+  if (payload?.website) {
+    // Reply normally to bots that fill the hidden field.
+    return Response.json({ message: "Quote request received." });
+  }
+
+  const quote = readQuote(payload);
+  const id = payload?.submissionId ?? randomUUID();
+  if (!quote || typeof id !== "string" || !submissionId.test(id)) {
     return Response.json({ error: "Invalid quote request." }, { status: 400 });
   }
 
-  const { name, phone, email, service, date, message } = quote;
-  const from = { name: "DT Hamilton Mechanical", address: process.env.FROM_EMAIL };
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 20000,
-  });
-  const preferredDate = date || "Not specified";
-
   try {
-    await transporter.sendMail({
-      from,
-      to: process.env.BUSINESS_EMAIL,
-      replyTo: email,
-      subject: `New Service Request from ${name.replace(/[\r\n]/g, " ")}`,
-      html: `
-        <h2>New Service Request</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Service:</strong> ${escapeHtml(service)}</p>
-        <p><strong>Preferred Date:</strong> ${escapeHtml(preferredDate)}</p>
-        <p><strong>Message:</strong></p>
-        <blockquote style="border-left: 4px solid #ddd; padding-left: 10px; color: #555;">
-          ${escapeHtml(message || "No additional message provided.").replace(/\r?\n/g, "<br>")}
-        </blockquote>
-        <hr />
-        <p>This message was sent from your website’s contact form.</p>
-      `,
-    });
-  } catch {
-    console.error("Quote delivery to DT Hamilton failed.");
-    return Response.json({ error: "Failed to deliver the quote request." }, { status: 500 });
-  }
+    const ip = request.headers.get("x-vercel-forwarded-for") ?? "unknown";
+    const ipWait = await reserveQuoteSlot("ip", ip, 8);
+    const retryAfter = ipWait || await reserveQuoteSlot("email", quote.email.toLowerCase(), 3);
+    if (retryAfter) {
+      return Response.json({ error: "Too many quote requests." }, {
+        status: 429,
+        headers: { "Retry-After": String(retryAfter) },
+      });
+    }
 
-  try {
-    await transporter.sendMail({
-      from,
-      to: email,
-      subject: "Your Service Request has been Received",
-      html: `
-        <h2>Hi ${escapeHtml(name)},</h2>
-        <p>Thank you for reaching out to <strong>DT Hamilton Mechanical</strong>. We’ve received your request for:</p>
-        <ul>
-          <li><strong>Service:</strong> ${escapeHtml(service)}</li>
-          <li><strong>Preferred Date:</strong> ${escapeHtml(preferredDate)}</li>
-        </ul>
-        <p>Our team will be in touch to confirm the details. You can also reach us at service@dt-hamilton.ca or 613-293-5790.</p>
-        <p>Best regards,<br>The DT Hamilton Mechanical Team</p>
-      `,
-    });
-  } catch {
-    console.error("Quote confirmation to the customer failed after the business received the request.");
+    const { recordPath, created } = await saveQuote(id.toLowerCase(), quote);
+    if (created) after(() => notifyQuote(recordPath, quote));
+  } catch (error) {
+    console.error("Quote could not be saved.", { id, reason: error.message });
+    return Response.json({ error: "Failed to save the quote request." }, { status: 503 });
   }
 
   return Response.json({ message: "Quote request received." });

@@ -1,3 +1,4 @@
+import { business } from "@/lib/seo/business";
 import Image from "next/image";
 import Link from "next/link";
 import { Accordion, ButtonLink, Section } from "@/components/composer";
@@ -14,6 +15,7 @@ export default function HomePage() {
 
   return (
     <SiteShell overlay>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(business).replace(/</g, "\\u003c") }} />
       <Section as="main" className={styles.wireframe} id="main" tabIndex={-1}>
         <HomeMotion />
         <Section as="section" className={styles.hero} aria-labelledby="home-title" data-vc-wireframe-region="hero">

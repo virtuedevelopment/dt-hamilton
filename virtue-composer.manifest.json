@@ -10,7 +10,8 @@
     "button-link",
     "drawer",
     "accordion",
-    "inline-message"
+    "inline-message",
+    "honeypot-field"
   ],
   "compositions": [],
   "blueprints": [],

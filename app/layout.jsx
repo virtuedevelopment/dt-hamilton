@@ -1,11 +1,13 @@
 import localFont from "next/font/local";
-import configurations from "@/lib/config/site";
+import { isPreview, siteName, siteUrl } from "@/lib/seo/metadata";
 import "@/styles/composer.css";
 import "@/styles/globals.css";
 
 export const metadata = {
-  title: configurations.metadata.title,
-  description: configurations.metadata.description,
+  metadataBase: new URL(siteUrl),
+  title: siteName,
+  description: "Heating, cooling, and ventilation services in Ottawa.",
+  ...(isPreview && { robots: { index: false, follow: false } }),
 };
 
 const googleSans = localFont({
@@ -16,7 +18,7 @@ const googleSans = localFont({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en-CA">
       <body className={googleSans.className}>
         {children}
       </body>

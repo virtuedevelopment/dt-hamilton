@@ -26,3 +26,17 @@ Open [localhost:3000](http://localhost:3000). Run `npm run check` for ESLint, st
 Composer is installed with the Section and Button wrappers. Its config records file-specific exceptions for the existing layout, mobile navigation, and quote form. Remove each exception when the corresponding UI is migrated.
 
 The contact endpoint uses `GMAIL_USER`, `GMAIL_PASS`, `FROM_EMAIL`, and `BUSINESS_EMAIL` from the server environment. Use a mock transport for local verification.
+
+## Quote requests and email delivery
+
+Vercel provides access to the private `dt-hamilton-quotes` Blob store through the
+project's OIDC connection. The quote route saves each request under `quotes/`
+before acknowledging it. Gmail sends the existing business and customer emails
+after the request is saved. Preview deployments use temporary test records and
+skip email.
+
+If an email is missing, open **Storage → dt-hamilton-quotes → Browser** in Vercel
+and download the corresponding quote JSON from `quotes/`. The files
+`business.json` and `customer.json` under that quote's matching folder record
+whether each email was accepted or failed. A missing outcome means the send is
+unconfirmed. Review the saved request and follow up manually when needed.

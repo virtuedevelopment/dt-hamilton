@@ -1,12 +1,13 @@
 "use client";
-import { useId, useState } from "react";
-import { Button, InlineMessage } from "@/components/composer";
+import { useId, useRef, useState } from "react";
+import { Button, HoneypotField, InlineMessage } from "@/components/composer";
 import configurations from "@/lib/config/site";
 
-const feedbackTones = { success: "success", invalid: "danger", error: "danger" };
+const feedbackTones = { success: "success", invalid: "danger", limited: "danger", error: "danger" };
 
 export default function QuoteForm({ feedback }) {
   const fieldId = useId();
+  const submissionId = useRef(null);
   const [status, setStatus] = useState("idle");
   const isLoading = status === "pending";
 
@@ -16,18 +17,25 @@ export default function QuoteForm({ feedback }) {
 
     const form = event.currentTarget;
     const formData = Object.fromEntries(new FormData(form));
+    const payload = JSON.stringify(formData);
+    if (submissionId.current?.payload !== payload) {
+      submissionId.current = { payload, id: crypto.randomUUID() };
+    }
     setStatus("pending");
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, submissionId: submissionId.current.id }),
       });
 
       if (response.ok) {
         form.reset();
+        submissionId.current = null;
         setStatus("success");
+      } else if (response.status === 429) {
+        setStatus("limited");
       } else {
         setStatus(response.status === 400 ? "invalid" : "error");
       }
@@ -37,7 +45,8 @@ export default function QuoteForm({ feedback }) {
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" method="post" onSubmit={handleSubmit}>
+      <HoneypotField />
       <div className="gridbox">
         <div className="inputbox">
           <label htmlFor={`${fieldId}-name`}>Full Name</label>

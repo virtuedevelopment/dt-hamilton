@@ -1,12 +1,11 @@
 import site from "@/lib/config/site";
-import seo from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: seo.services.title,
-  description: seo.services.description,
-  keywords: seo.services.keywords,
-  authors: [{ name: seo.services.author }],
-};
+export const metadata = pageMetadata(
+  "/services",
+  "Heating, Cooling & Ventilation Services in Ottawa | DT Hamilton",
+  "Explore HVAC installation, repair, maintenance, and ductwork for Ottawa homes and commercial buildings, including new construction.",
+);
 
 export const servicesContent = {
   hero: {

@@ -1,11 +1,10 @@
-import seo from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: seo.home.title,
-  description: "Heating, cooling, and ventilation for Ottawa homes, businesses, and construction projects. Explore DT Hamilton Mechanical's services or request a quote.",
-  keywords: seo.home.keywords,
-  authors: [{ name: seo.home.author }],
-};
+export const metadata = pageMetadata(
+  "/",
+  "Ottawa HVAC Services | DT Hamilton Mechanical",
+  "Heating, cooling, and ventilation for Ottawa homes, businesses, and construction projects. Explore DT Hamilton Mechanical’s services or request a quote.",
+);
 
 const phone = { label: "613-293-5790", href: "tel:+16132935790" };
 // Existing site photography is representative. Confirm imagery before launch.

@@ -1,11 +1,10 @@
-import seo from "@/lib/seo/metadata";
+import { pageMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: seo.about.title,
-  description: seo.about.description,
-  keywords: seo.about.keywords,
-  authors: [{ name: seo.about.author }],
-};
+export const metadata = pageMetadata(
+  "/about",
+  "About DT Hamilton Mechanical | Ottawa HVAC Company",
+  "Learn how DT Hamilton Mechanical installs, repairs, and maintains HVAC systems for Ottawa homes, commercial properties, and new construction.",
+);
 
 export const aboutContent = {
   hero: {
